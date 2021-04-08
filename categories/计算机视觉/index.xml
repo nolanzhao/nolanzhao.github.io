@@ -6,11 +6,7 @@
     <description>Recent content in 计算机视觉 on 云端漫步</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Mar 2020 17:16:55 +0800</lastBuildDate>
-    
-	<atom:link href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Thu, 26 Mar 2020 17:16:55 +0800</lastBuildDate><atom:link href="/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>图片水印：光晕效果</title>
       <link>/posts/image-watermark/</link>

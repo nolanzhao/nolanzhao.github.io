@@ -6,10 +6,16 @@
     <description>Recent content in 数据库 on 云端漫步</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Nov 2020 17:11:37 +0800</lastBuildDate>
-    
-	<atom:link href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
-    
+    <lastBuildDate>Thu, 08 Apr 2021 16:00:00 +0800</lastBuildDate><atom:link href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mongodb分片集试验</title>
+      <link>/posts/mongo_shard/</link>
+      <pubDate>Thu, 08 Apr 2021 16:00:00 +0800</pubDate>
+      
+      <guid>/posts/mongo_shard/</guid>
+      <description>&lt;p&gt;mongodb分片集可以将数据分布到多台机器多个mongo实例中, 实现横向扩展, 解决单机容量不足的问题.
+今天用docker试验了在单机部署分片集, 记录一下方法.&lt;/p&gt;</description>
+    </item>
     
     <item>
       <title>Redis主从同步和哨兵</title>

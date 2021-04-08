@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Shard on 云端漫步</title>
+    <link>/tags/shard/</link>
+    <description>Recent content in Shard on 云端漫步</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 08 Apr 2021 16:00:00 +0800</lastBuildDate><atom:link href="/tags/shard/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>mongodb分片集试验</title>
+      <link>/posts/mongo_shard/</link>
+      <pubDate>Thu, 08 Apr 2021 16:00:00 +0800</pubDate>
+      
+      <guid>/posts/mongo_shard/</guid>
+      <description>&lt;p&gt;mongodb分片集可以将数据分布到多台机器多个mongo实例中, 实现横向扩展, 解决单机容量不足的问题.
+今天用docker试验了在单机部署分片集, 记录一下方法.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

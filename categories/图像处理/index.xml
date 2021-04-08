@@ -6,11 +6,7 @@
     <description>Recent content in 图像处理 on 云端漫步</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 19 Aug 2019 00:00:00 +0000</lastBuildDate>
-    
-	<atom:link href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 19 Aug 2019 00:00:00 +0000</lastBuildDate><atom:link href="/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>图像拼接算法</title>
       <link>/posts/image-stitch/</link>

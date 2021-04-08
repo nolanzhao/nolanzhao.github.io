@@ -6,11 +6,7 @@
     <description>Recent content in 图像平移 on 云端漫步</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Sep 2019 16:16:07 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/%E5%9B%BE%E5%83%8F%E5%B9%B3%E7%A7%BB/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Mon, 23 Sep 2019 16:16:07 +0800</lastBuildDate><atom:link href="/tags/%E5%9B%BE%E5%83%8F%E5%B9%B3%E7%A7%BB/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>图像平移矩阵</title>
       <link>/posts/image-transform/</link>

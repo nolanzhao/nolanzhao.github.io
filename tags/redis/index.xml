@@ -6,11 +6,7 @@
     <description>Recent content in Redis on 云端漫步</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Nov 2020 17:11:37 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/redis/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 17 Nov 2020 17:11:37 +0800</lastBuildDate><atom:link href="/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Redis主从同步和哨兵</title>
       <link>/posts/redis_master_slave_sentinel/</link>

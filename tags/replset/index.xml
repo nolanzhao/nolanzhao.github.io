@@ -6,11 +6,7 @@
     <description>Recent content in ReplSet on 云端漫步</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 17 Nov 2020 10:58:16 +0800</lastBuildDate>
-    
-	<atom:link href="/tags/replset/index.xml" rel="self" type="application/rss+xml" />
-    
-    
+    <lastBuildDate>Tue, 17 Nov 2020 10:58:16 +0800</lastBuildDate><atom:link href="/tags/replset/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>使用docker构建mongo Replica Set</title>
       <link>/posts/mongo_replica_set/</link>
