@@ -80,17 +80,13 @@ sharding:
     clusterRole: shardsvr
 </code></pre></div><p>启动三个实例</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -p 27018:27018 --restart always -v /home/nolan/mongo/m_27018:/data -v /home/nolan/mongo/m_27018/db:/data/db --name m_27018 -d mongo mongod -f /data/mongod.conf --bind_ip_all
-
 docker run -p 27019:27019 --restart always -v /home/nolan/mongo/m_27019:/data -v /home/nolan/mongo/m_27019/db:/data/db --name m_27019 -d mongo mongod -f /data/mongod.conf --bind_ip_all
-
 docker run -p 27020:27020 --restart always -v /home/nolan/mongo/m_27020:/data -v /home/nolan/mongo/m_27020/db:/data/db --name m_27020 -d mongo mongod -f /data/mongod.conf --bind_ip_all
 </code></pre></div><p>m_27019, m_27020方法同上, 在相应配置中修改端口</p>
 <p>同上, 再创建三个mongod实例(27021, 27022, 27023)作为副本集rs1 (注意在相应配置中修改端口和replSetName)</p>
 <p>启动三个实例</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -p 27021:27021 --restart always -v /home/nolan/mongo/m_27021:/data -v /home/nolan/mongo/m_27021/db:/data/db --name m_27021 -d mongo mongod -f /data/mongod.conf --bind_ip_all
-
 docker run -p 27022:27022 --restart always -v /home/nolan/mongo/m_27022:/data -v /home/nolan/mongo/m_27022/db:/data/db --name m_27022 -d mongo mongod -f /data/mongod.conf --bind_ip_all
-
 docker run -p 27023:27023 --restart always -v /home/nolan/mongo/m_27023:/data -v /home/nolan/mongo/m_27023/db:/data/db --name m_27023 -d mongo mongod -f /data/mongod.conf --bind_ip_all
 
 </code></pre></div><h2 id="2-创建configserver副本集configsvr">2. 创建ConfigServer副本集(configsvr)</h2>
@@ -106,9 +102,7 @@ sharding:
 </code></pre></div><p>c_27025, c_27026方法同上, 在相应配置中修改端口</p>
 <p>启动三个实例</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker run -p 27024:27024 --restart always -v /home/nolan/mongo/c_27024:/data -v /home/nolan/mongo/c_27024/db:/data/db --name c_27024 -d mongo mongod -f /data/mongod.conf --bind_ip_all
-
 docker run -p 27025:27025 --restart always -v /home/nolan/mongo/c_27025:/data -v /home/nolan/mongo/c_27025/db:/data/db --name c_27025 -d mongo mongod -f /data/mongod.conf --bind_ip_all
-
 docker run -p 27026:27026 --restart always -v /home/nolan/mongo/c_27026:/data -v /home/nolan/mongo/c_27026/db:/data/db --name c_27026 -d mongo mongod -f /data/mongod.conf --bind_ip_all
 </code></pre></div><h2 id="3-创建mongos">3. 创建mongos</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">/home/nolan/mongo/s_27027
@@ -123,23 +117,17 @@ sharding:
 </code></pre></div><h2 id="4-初始化副本集">4. 初始化副本集</h2>
 <h4 id="rs0">rs0</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker exec -it m_27018 mongo --port <span style="color:#ae81ff">27018</span>
-
 rs.initiate<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> _id : <span style="color:#e6db74">&#34;rs0&#34;</span>, members: <span style="color:#f92672">[</span> <span style="color:#f92672">{</span> _id: 0, host: <span style="color:#e6db74">&#34;172.24.29.128:27018&#34;</span> <span style="color:#f92672">}</span>, <span style="color:#f92672">{</span> _id: 1, host: <span style="color:#e6db74">&#34;172.24.29.128:27019&#34;</span> <span style="color:#f92672">}</span>, <span style="color:#f92672">{</span> _id: 2, host: <span style="color:#e6db74">&#34;172.24.29.128:27020&#34;</span> <span style="color:#f92672">}</span> <span style="color:#f92672">]</span> <span style="color:#f92672">})</span>
 </code></pre></div><h4 id="rs1">rs1</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker exec -it m_27021 mongo --port <span style="color:#ae81ff">27021</span>
-
 rs.initiate<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> _id : <span style="color:#e6db74">&#34;rs1&#34;</span>, members: <span style="color:#f92672">[</span> <span style="color:#f92672">{</span> _id: 0, host: <span style="color:#e6db74">&#34;172.24.29.128:27021&#34;</span> <span style="color:#f92672">}</span>, <span style="color:#f92672">{</span> _id: 1, host: <span style="color:#e6db74">&#34;172.24.29.128:27022&#34;</span> <span style="color:#f92672">}</span>, <span style="color:#f92672">{</span> _id: 2, host: <span style="color:#e6db74">&#34;172.24.29.128:27023&#34;</span> <span style="color:#f92672">}</span> <span style="color:#f92672">]</span> <span style="color:#f92672">})</span>
 </code></pre></div><h4 id="cfg">cfg</h4>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker exec -it c_27024 mongo --port <span style="color:#ae81ff">27024</span>
-
 rs.initiate<span style="color:#f92672">(</span> <span style="color:#f92672">{</span> _id : <span style="color:#e6db74">&#34;cfg&#34;</span>, members: <span style="color:#f92672">[</span> <span style="color:#f92672">{</span> _id: 0, host: <span style="color:#e6db74">&#34;172.24.29.128:27024&#34;</span> <span style="color:#f92672">}</span>, <span style="color:#f92672">{</span> _id: 1, host: <span style="color:#e6db74">&#34;172.24.29.128:27025&#34;</span> <span style="color:#f92672">}</span>, <span style="color:#f92672">{</span> _id: 2, host: <span style="color:#e6db74">&#34;172.24.29.128:27026&#34;</span> <span style="color:#f92672">}</span> <span style="color:#f92672">]</span> <span style="color:#f92672">})</span>
 </code></pre></div><h2 id="5-初始化mongos">5. 初始化mongos</h2>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">docker exec -it s_27027 mongo --port <span style="color:#ae81ff">27027</span>
-
 use admin
-
 db.runCommand<span style="color:#f92672">({</span> addshard : <span style="color:#e6db74">&#34;rs0/172.24.29.128:27018,172.24.29.128:27019,172.24.29.128:27020&#34;</span>, name:<span style="color:#e6db74">&#34;shard0&#34;</span><span style="color:#f92672">})</span> 
-
 db.runCommand<span style="color:#f92672">({</span> addshard : <span style="color:#e6db74">&#34;rs1/172.24.29.128:27021,172.24.29.128:27022,172.24.29.128:27023&#34;</span>, name:<span style="color:#e6db74">&#34;shard1&#34;</span><span style="color:#f92672">})</span>
 </code></pre></div><h2 id="6-命令参考">6 命令参考</h2>
 <h4 id="创建索引">创建索引</h4>
