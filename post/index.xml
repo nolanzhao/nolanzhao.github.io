@@ -87,15 +87,5 @@ H[1][3]的值代表下移尺度&lt;/p&gt;</description>
       <description>&lt;p&gt;图片拼接是一个很常见的应用，本文总结一下通过OpenCV实现多张图的全景拼接&lt;/p&gt;</description>
     </item>
     
-    <item>
-      <title>[English] Creating a New Theme</title>
-      <link>http://rootcat.xyz/post/english-preview/</link>
-      <pubDate>Thu, 31 Aug 2017 15:43:48 +0800</pubDate>
-      
-      <guid>http://rootcat.xyz/post/english-preview/</guid>
-      <description>Introduction This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
-We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
-    </item>
-    
   </channel>
 </rss>
