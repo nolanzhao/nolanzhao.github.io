@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>有向无环图 on 学习、思考的记录</title>
+    <link>http://rootcat.xyz/tags/%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BE/</link>
+    <description>Recent content in 有向无环图 on 学习、思考的记录</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 12 Aug 2020 18:46:31 +0800</lastBuildDate><atom:link href="http://rootcat.xyz/tags/%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BE/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>图的拓扑排序和判断是否有环</title>
+      <link>http://rootcat.xyz/post/graph_topolgical_sort/</link>
+      <pubDate>Wed, 12 Aug 2020 18:46:31 +0800</pubDate>
+      
+      <guid>http://rootcat.xyz/post/graph_topolgical_sort/</guid>
+      <description>&lt;p&gt;如何判断模块间是否有循环依赖? 如何根据依赖关系对图进行排序?
+这就涉及到图的算法: 判断DAG(有向无环图, Directed acyclic graph).
+本文整理两种解决方案, 见代码.&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>水印 on 学习、思考的记录</title>
+    <link>http://rootcat.xyz/tags/%E6%B0%B4%E5%8D%B0/</link>
+    <description>Recent content in 水印 on 学习、思考的记录</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 26 Mar 2020 17:16:55 +0800</lastBuildDate><atom:link href="http://rootcat.xyz/tags/%E6%B0%B4%E5%8D%B0/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>图片水印：光晕效果</title>
+      <link>http://rootcat.xyz/post/image-watermark/</link>
+      <pubDate>Thu, 26 Mar 2020 17:16:55 +0800</pubDate>
+      
+      <guid>http://rootcat.xyz/post/image-watermark/</guid>
+      <description>&lt;p&gt;一个线性渐变的光晕，opencv cpp实现&lt;/p&gt;</description>
+    </item>
+    
+  </channel>
+</rss>
