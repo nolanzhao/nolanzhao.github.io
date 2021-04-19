@@ -1,193 +1,140 @@
-<?xml-stylesheet type="text/xsl" href="http://rootcat.xyz/sitemap.xsl"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>http://rootcat.xyz/about/</loc>
-    <lastmod>2017-08-28T21:41:52+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>http://rootcat.xyz/categories/</loc>
+    <loc>/categories/</loc>
     <lastmod>2021-04-08T16:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/tags/mongodb/</loc>
+    <loc>/tags/mongodb/</loc>
     <lastmod>2021-04-08T16:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/post/mongo_shard/</loc>
+    <loc>/posts/mongo_shard/</loc>
     <lastmod>2021-04-08T16:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/post/</loc>
+    <loc>/posts/</loc>
     <lastmod>2021-04-08T16:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/tags/shard/</loc>
+    <loc>/tags/shard/</loc>
     <lastmod>2021-04-08T16:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/tags/</loc>
+    <loc>/tags/</loc>
     <lastmod>2021-04-08T16:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/</loc>
+    <loc>/</loc>
     <lastmod>2021-04-08T16:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
+    <loc>/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</loc>
     <lastmod>2021-04-08T16:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/tags/redis/</loc>
+    <loc>/tags/redis/</loc>
     <lastmod>2020-11-17T17:11:37+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/post/redis_master_slave_sentinel/</loc>
+    <loc>/posts/redis_master_slave_sentinel/</loc>
     <lastmod>2020-11-17T17:11:37+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/tags/replset/</loc>
+    <loc>/tags/replset/</loc>
     <lastmod>2020-11-17T10:58:16+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/post/mongo_replica_set/</loc>
+    <loc>/posts/mongo_replica_set/</loc>
     <lastmod>2020-11-17T10:58:16+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/tags/protobuf/</loc>
+    <loc>/tags/protobuf/</loc>
     <lastmod>2020-08-19T17:07:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/post/protobuf-tutorial/</loc>
+    <loc>/posts/protobuf-tutorial/</loc>
     <lastmod>2020-08-19T17:07:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
+    <loc>/categories/%E5%90%8E%E7%AB%AF%E5%BC%80%E5%8F%91/</loc>
     <lastmod>2020-08-19T17:07:26+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/post/graph_topolgical_sort/</loc>
+    <loc>/posts/graph_topolgical_sort/</loc>
     <lastmod>2020-08-12T18:46:31+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/tags/%E6%8E%92%E5%BA%8F/</loc>
+    <loc>/tags/%E6%8E%92%E5%BA%8F/</loc>
     <lastmod>2020-08-12T18:46:31+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/tags/%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BE/</loc>
+    <loc>/tags/%E6%9C%89%E5%90%91%E6%97%A0%E7%8E%AF%E5%9B%BE/</loc>
     <lastmod>2020-08-12T18:46:31+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/categories/%E7%AE%97%E6%B3%95/</loc>
+    <loc>/categories/%E7%AE%97%E6%B3%95/</loc>
     <lastmod>2020-08-12T18:46:31+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/post/image-watermark/</loc>
+    <loc>/posts/image-watermark/</loc>
     <lastmod>2020-03-26T17:16:55+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/tags/%E6%B0%B4%E5%8D%B0/</loc>
+    <loc>/tags/%E6%B0%B4%E5%8D%B0/</loc>
     <lastmod>2020-03-26T17:16:55+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/</loc>
+    <loc>/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E8%A7%86%E8%A7%89/</loc>
     <lastmod>2020-03-26T17:16:55+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/tags/%E5%9B%BE%E5%83%8F%E5%B9%B3%E7%A7%BB%E7%9F%A9%E9%98%B5/</loc>
+    <loc>/tags/%E5%9B%BE%E5%83%8F%E5%B9%B3%E7%A7%BB/</loc>
     <lastmod>2019-09-23T16:16:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/post/image-transform/</loc>
+    <loc>/posts/image-transform/</loc>
     <lastmod>2019-09-23T16:16:07+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/post/image-stitch/</loc>
-    <lastmod>2019-08-19T00:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <loc>/categories/%E5%9B%BE%E5%83%8F%E5%A4%84%E7%90%86/</loc>
+    <lastmod>2019-08-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>http://rootcat.xyz/tags/%E5%9B%BE%E5%83%8F%E6%8B%BC%E6%8E%A5/</loc>
-    <lastmod>2019-08-19T00:00:00+08:00</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.5</priority>
+    <loc>/tags/%E5%9B%BE%E5%83%8F%E6%8B%BC%E6%8E%A5/</loc>
+    <lastmod>2019-08-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/posts/image-stitch/</loc>
+    <lastmod>2019-08-19T00:00:00+00:00</lastmod>
   </url>
   
 </urlset>

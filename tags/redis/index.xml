@@ -2,17 +2,17 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Redis on 云端漫步</title>
-    <link>http://rootcat.xyz/tags/redis/</link>
+    <link>/tags/redis/</link>
     <description>Recent content in Redis on 云端漫步</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 17 Nov 2020 17:11:37 +0800</lastBuildDate><atom:link href="http://rootcat.xyz/tags/redis/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Tue, 17 Nov 2020 17:11:37 +0800</lastBuildDate><atom:link href="/tags/redis/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Redis主从同步和哨兵</title>
-      <link>http://rootcat.xyz/post/redis_master_slave_sentinel/</link>
+      <link>/posts/redis_master_slave_sentinel/</link>
       <pubDate>Tue, 17 Nov 2020 17:11:37 +0800</pubDate>
       
-      <guid>http://rootcat.xyz/post/redis_master_slave_sentinel/</guid>
+      <guid>/posts/redis_master_slave_sentinel/</guid>
       <description>&lt;p&gt;Redis高可用解决方案: 主从同步+哨兵.&lt;/p&gt;</description>
     </item>
     

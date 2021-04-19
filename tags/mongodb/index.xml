@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MongoDB on 云端漫步</title>
-    <link>http://rootcat.xyz/tags/mongodb/</link>
+    <link>/tags/mongodb/</link>
     <description>Recent content in MongoDB on 云端漫步</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 08 Apr 2021 16:00:00 +0800</lastBuildDate><atom:link href="http://rootcat.xyz/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language>
+    <lastBuildDate>Thu, 08 Apr 2021 16:00:00 +0800</lastBuildDate><atom:link href="/tags/mongodb/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mongodb分片集试验</title>
-      <link>http://rootcat.xyz/post/mongo_shard/</link>
+      <link>/posts/mongo_shard/</link>
       <pubDate>Thu, 08 Apr 2021 16:00:00 +0800</pubDate>
       
-      <guid>http://rootcat.xyz/post/mongo_shard/</guid>
+      <guid>/posts/mongo_shard/</guid>
       <description>&lt;p&gt;mongodb分片集可以将数据分布到多台机器多个mongo实例中, 实现横向扩展, 解决单机容量不足的问题.
 今天用docker试验了在单机部署分片集, 记录一下方法.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>使用docker构建mongo Replica Set</title>
-      <link>http://rootcat.xyz/post/mongo_replica_set/</link>
+      <link>/posts/mongo_replica_set/</link>
       <pubDate>Tue, 17 Nov 2020 10:58:16 +0800</pubDate>
       
-      <guid>http://rootcat.xyz/post/mongo_replica_set/</guid>
+      <guid>/posts/mongo_replica_set/</guid>
       <description>&lt;p&gt;Mongo replica set方案可以在多台机器同步数据, 如果PRIMARY机器挂掉, 其他SECONDARY机器可以选出一台新的PRIMARY,
 流量可以切换到新机器, 从而实现高可用.&lt;/p&gt;</description>
     </item>
