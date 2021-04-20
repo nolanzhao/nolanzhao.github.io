@@ -2,36 +2,36 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>数据库 on 云端漫步</title>
-    <link>/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
+    <link>http://rootcat.xyz/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/</link>
     <description>Recent content in 数据库 on 云端漫步</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language>
-    <lastBuildDate>Thu, 08 Apr 2021 16:00:00 +0800</lastBuildDate><atom:link href="/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
+    <language>en</language>
+    <lastBuildDate>Thu, 08 Apr 2021 16:00:00 +0800</lastBuildDate><atom:link href="http://rootcat.xyz/categories/%E6%95%B0%E6%8D%AE%E5%BA%93/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>mongodb分片集试验</title>
-      <link>/posts/mongo_shard/</link>
+      <link>http://rootcat.xyz/post/mongo_shard/</link>
       <pubDate>Thu, 08 Apr 2021 16:00:00 +0800</pubDate>
       
-      <guid>/posts/mongo_shard/</guid>
+      <guid>http://rootcat.xyz/post/mongo_shard/</guid>
       <description>&lt;p&gt;mongodb分片集可以将数据分布到多台机器多个mongo实例中, 实现横向扩展, 解决单机容量不足的问题.
 今天用docker试验了在单机部署分片集, 记录一下方法.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>Redis主从同步和哨兵</title>
-      <link>/posts/redis_master_slave_sentinel/</link>
+      <link>http://rootcat.xyz/post/redis_master_slave_sentinel/</link>
       <pubDate>Tue, 17 Nov 2020 17:11:37 +0800</pubDate>
       
-      <guid>/posts/redis_master_slave_sentinel/</guid>
+      <guid>http://rootcat.xyz/post/redis_master_slave_sentinel/</guid>
       <description>&lt;p&gt;Redis高可用解决方案: 主从同步+哨兵.&lt;/p&gt;</description>
     </item>
     
     <item>
       <title>使用docker构建mongo Replica Set</title>
-      <link>/posts/mongo_replica_set/</link>
+      <link>http://rootcat.xyz/post/mongo_replica_set/</link>
       <pubDate>Tue, 17 Nov 2020 10:58:16 +0800</pubDate>
       
-      <guid>/posts/mongo_replica_set/</guid>
+      <guid>http://rootcat.xyz/post/mongo_replica_set/</guid>
       <description>&lt;p&gt;Mongo replica set方案可以在多台机器同步数据, 如果PRIMARY机器挂掉, 其他SECONDARY机器可以选出一台新的PRIMARY,
 流量可以切换到新机器, 从而实现高可用.&lt;/p&gt;</description>
     </item>
