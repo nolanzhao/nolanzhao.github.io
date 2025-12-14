@@ -1,0 +1,668 @@
+<!doctype html><html lang=zh-cn>
+<head>
+<meta charset=utf-8>
+<meta http-equiv=x-ua-compatible content="IE=edge,chrome=1">
+<title>三种主流VPN搭建方法完全指南 - 云端漫步</title>
+<meta name=renderer content="webkit">
+<meta name=viewport content="width=device-width,initial-scale=1,maximum-scale=1">
+<meta http-equiv=cache-control content="no-transform">
+<meta http-equiv=cache-control content="no-siteapp">
+<meta name=theme-color content="#f8f5ec">
+<meta name=msapplication-navbutton-color content="#f8f5ec">
+<meta name=apple-mobile-web-app-capable content="yes">
+<meta name=apple-mobile-web-app-status-bar-style content="#f8f5ec">
+<meta name=author content="Nolan"><meta name=description content="详细介绍 VLESS+Reality、TUIC 和 Hysteria2 三种主流 VPN 的搭建方法，包含自动化安装脚本和客户端配置指南"><meta name=keywords content="技术笔记,Nolan Zhao,Zhao Xu,云端漫步,赵旭,Python,Go,后端,算法">
+<meta name=baidu-site-verification content="code-z7J4FjZlre">
+<meta name=generator content="Hugo 0.88.1 with theme even">
+<link rel=canonical href=https://nolanzhao.github.io/post/vpn-setup-guide/>
+<link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png>
+<link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png>
+<link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png>
+<link rel=manifest href=/manifest.json>
+<link rel=mask-icon href=/safari-pinned-tab.svg color=#5bbad5>
+<link href=/sass/main.min.5df31351d2587df4e54e9309ff020c1ecafbf6093cde1ef0c0fc7683f9903db0.css rel=stylesheet>
+<link rel=stylesheet href=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin=anonymous>
+<link rel=stylesheet href=/css/custom.css>
+<meta property="og:title" content="三种主流VPN搭建方法完全指南">
+<meta property="og:description" content="详细介绍 VLESS+Reality、TUIC 和 Hysteria2 三种主流 VPN 的搭建方法，包含自动化安装脚本和客户端配置指南">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://nolanzhao.github.io/post/vpn-setup-guide/"><meta property="article:section" content="post">
+<meta property="article:published_time" content="2025-12-14T00:00:00+08:00">
+<meta property="article:modified_time" content="2025-12-14T00:00:00+08:00">
+<meta itemprop=name content="三种主流VPN搭建方法完全指南">
+<meta itemprop=description content="详细介绍 VLESS+Reality、TUIC 和 Hysteria2 三种主流 VPN 的搭建方法，包含自动化安装脚本和客户端配置指南"><meta itemprop=datePublished content="2025-12-14T00:00:00+08:00">
+<meta itemprop=dateModified content="2025-12-14T00:00:00+08:00">
+<meta itemprop=wordCount content="2750">
+<meta itemprop=keywords content="VPN,VLESS,TUIC,Hysteria2,"><meta name=twitter:card content="summary">
+<meta name=twitter:title content="三种主流VPN搭建方法完全指南">
+<meta name=twitter:description content="详细介绍 VLESS+Reality、TUIC 和 Hysteria2 三种主流 VPN 的搭建方法，包含自动化安装脚本和客户端配置指南"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
+<script src=https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js></script><![endif]-->
+</head>
+<body>
+<div id=mobile-navbar class=mobile-navbar>
+<div class=mobile-header-logo>
+<a href=/ class=logo>云端漫步</a>
+</div>
+<div class=mobile-navbar-icon>
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+<nav id=mobile-menu class="mobile-menu slideout-menu">
+<ul class=mobile-menu-list>
+<a href=/>
+<li class=mobile-menu-item>主页</li>
+</a><a href=/post/>
+<li class=mobile-menu-item>归档</li>
+</a><a href=/tags/>
+<li class=mobile-menu-item>标签</li>
+</a><a href=/categories/>
+<li class=mobile-menu-item>分类</li>
+</a>
+</ul>
+</nav>
+<div class=container id=mobile-panel>
+<header id=header class=header>
+<div class=logo-wrapper>
+<a href=/ class=logo>云端漫步</a>
+</div>
+<nav class=site-navbar>
+<ul id=menu class=menu>
+<li class=menu-item>
+<a class=menu-item-link href=/>主页</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/post/>归档</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/tags/>标签</a>
+</li><li class=menu-item>
+<a class=menu-item-link href=/categories/>分类</a>
+</li>
+</ul>
+</nav>
+</header>
+<main id=main class=main>
+<div class=content-wrapper>
+<div id=content class=content>
+<article class=post>
+<header class=post-header>
+<h1 class=post-title>三种主流VPN搭建方法完全指南</h1>
+<div class=post-meta>
+<span class=post-time> 2025年12月14日 </span>
+<div class=post-category>
+<a href=/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/> 网络安全 </a>
+</div>
+<span class=more-meta> 约 2750 字 </span>
+<span class=more-meta> 预计阅读 6 分钟 </span>
+</div>
+</header>
+<div class=post-toc id=post-toc>
+<h2 class=post-toc-title>文章目录</h2>
+<div class="post-toc-content always-active">
+<nav id=TableOfContents>
+<ul>
+<li>
+<ul>
+<li><a href=#服务器环境要求>服务器环境要求</a></li>
+<li><a href=#方案一-vless--reality-最稳定>方案一: VLESS + Reality (最稳定)</a>
+<ul>
+<li><a href=#方案特点>方案特点</a></li>
+<li><a href=#技术原理>技术原理</a></li>
+<li><a href=#一键安装>一键安装</a></li>
+<li><a href=#维护命令>维护命令</a></li>
+</ul>
+</li>
+<li><a href=#方案二-tuic-速度较快-可做备选方案>方案二: TUIC (速度较快, 可做备选方案)</a>
+<ul>
+<li><a href=#方案特点-1>方案特点</a></li>
+<li><a href=#技术原理-1>技术原理</a></li>
+<li><a href=#前置准备>前置准备</a></li>
+<li><a href=#一键安装-1>一键安装</a></li>
+<li><a href=#防火墙配置>防火墙配置</a></li>
+<li><a href=#维护命令-1>维护命令</a></li>
+<li><a href=#证书管理>证书管理</a></li>
+</ul>
+</li>
+<li><a href=#方案三-hysteria2-速度最快>方案三: Hysteria2 (速度最快)</a>
+<ul>
+<li><a href=#方案特点-2>方案特点</a></li>
+<li><a href=#技术原理-2>技术原理</a></li>
+<li><a href=#前置准备-1>前置准备</a></li>
+<li><a href=#一键安装-2>一键安装</a></li>
+<li><a href=#防火墙配置-1>防火墙配置</a></li>
+<li><a href=#高级功能>高级功能</a></li>
+<li><a href=#维护命令-2>维护命令</a></li>
+<li><a href=#证书管理-1>证书管理</a></li>
+</ul>
+</li>
+<li><a href=#客户端配置>客户端配置</a>
+<ul>
+<li><a href=#支持的客户端>支持的客户端</a></li>
+<li><a href=#通用配置步骤>通用配置步骤</a></li>
+<li><a href=#配置说明>配置说明</a></li>
+</ul>
+</li>
+<li><a href=#三种方案对比>三种方案对比</a></li>
+<li><a href=#使用建议>使用建议</a>
+<ul>
+<li><a href=#新手用户>新手用户</a></li>
+<li><a href=#追求速度>追求速度</a></li>
+<li><a href=#多方案部署>多方案部署</a></li>
+</ul>
+</li>
+<li><a href=#安全建议>安全建议</a>
+<ul>
+<li><a href=#服务器安全>服务器安全</a></li>
+<li><a href=#使用安全>使用安全</a></li>
+</ul>
+</li>
+<li><a href=#故障排查>故障排查</a>
+<ul>
+<li><a href=#无法连接>无法连接</a></li>
+<li><a href=#速度慢>速度慢</a></li>
+<li><a href=#频繁断线>频繁断线</a></li>
+</ul>
+</li>
+<li><a href=#总结>总结</a></li>
+<li><a href=#参考资源>参考资源</a></li>
+</ul>
+</li>
+</ul>
+</nav>
+</div>
+</div>
+<div class=post-content>
+<p>本文介绍 VLESS+Reality、TUIC 和 Hysteria2 三种主流 VPN 的搭建方法，包含自动化安装脚本和客户端配置指南.</p>
+<blockquote>
+<p><strong>免责声明</strong>: 本文内容仅供学习研究使用，请勿用于非法用途。</p>
+</blockquote>
+<p><strong>推荐服务器</strong>: <a href=https://bandwagonhost.com/>Bandwagon E-Commerce VPS</a></p>
+<p><strong>一键安装脚本仓库</strong>: <a href=https://github.com/nolanzhao/network_tools/tree/dev>https://github.com/nolanzhao/network_tools/tree/dev</a></p>
+<h2 id=服务器环境要求>服务器环境要求</h2>
+<ul>
+<li><strong>操作系统</strong>: Ubuntu 24.04 LTS</li>
+<li><strong>权限</strong>: root 用户</li>
+<li><strong>网络</strong>: 公网 IP 地址</li>
+<li><strong>防火墙</strong>: 需开放相应端口</li>
+</ul>
+<blockquote>
+<p>⚠️ <strong>重要提示</strong>: 某些服务器安装完成后，需要在以下两处开放相应端口：</p>
+<ol>
+<li><strong>服务器提供商的防火墙设置</strong></li>
+<li><strong>服务器系统防火墙</strong>（使用 <code>ufw</code> 命令, Vultr 服务器通常需要这一步!）</li>
+</ol>
+</blockquote>
+<hr>
+<h2 id=方案一-vless--reality-最稳定>方案一: VLESS + Reality (最稳定)</h2>
+<h3 id=方案特点>方案特点</h3>
+<p>VLESS + Reality 是目前最稳定的VPN方案之一，具有以下优势：</p>
+<ul>
+<li>✅ <strong>极强抗封锁能力</strong>: Reality 协议可伪装成真实网站流量</li>
+<li>✅ <strong>基于 TCP</strong>: 稳定可靠，适合网络环境复杂的场景</li>
+<li>✅ <strong>无需域名</strong>: 不需要购买和配置域名，降低使用门槛</li>
+<li>✅ <strong>配置简单</strong>: 使用自动化脚本一键部署</li>
+</ul>
+<h3 id=技术原理>技术原理</h3>
+<p>VLESS 是一种轻量级传输协议，Reality 是新一代流量伪装技术，可以将VPN流量伪装成访问知名网站的流量，从而避免被识别和封锁。</p>
+<h3 id=一键安装>一键安装</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>bash &lt;<span style=color:#ff79c6>(</span>curl -fsSL https://raw.githubusercontent.com/nolanzhao/network_tools/dev/install_vless_reality.sh<span style=color:#ff79c6>)</span>
+</code></pre></div><blockquote>
+<p>💡 <strong>安装完成后，脚本会自动生成</strong>:</p>
+<ul>
+<li>完整的连接配置信息（服务器地址、端口、UUID、公钥、Short ID）</li>
+<li>客户端导入二维码（扫码即用）</li>
+<li>配置文件位置: <code>/usr/local/etc/xray/config.json</code></li>
+</ul>
+</blockquote>
+<h3 id=维护命令>维护命令</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#6272a4># 查看服务状态</span>
+systemctl status xray
+
+<span style=color:#6272a4># 启动服务</span>
+systemctl start xray
+
+<span style=color:#6272a4># 停止服务</span>
+systemctl stop xray
+
+<span style=color:#6272a4># 重启服务</span>
+systemctl restart xray
+
+<span style=color:#6272a4># 查看日志</span>
+journalctl -u xray -f
+</code></pre></div><hr>
+<h2 id=方案二-tuic-速度较快-可做备选方案>方案二: TUIC (速度较快, 可做备选方案)</h2>
+<h3 id=方案特点-1>方案特点</h3>
+<p>TUIC 是基于 QUIC 协议的现代化VPN方案：</p>
+<ul>
+<li>⚡ <strong>速度快</strong>: 基于 UDP 的 QUIC 协议，延迟低</li>
+<li>🔒 <strong>安全性高</strong>: 内置 TLS 1.3 加密</li>
+<li>🌐 <strong>需要域名</strong>: 必须配置有效域名和 SSL 证书</li>
+<li>📱 <strong>支持广泛</strong>: 主流客户端均支持</li>
+</ul>
+<h3 id=技术原理-1>技术原理</h3>
+<p>TUIC 基于 QUIC (Quick UDP Internet Connections) 协议，这是 Google 开发的下一代互联网传输协议，具有 0-RTT 连接建立、多路复用、丢包快速恢复等特性，在弱网环境下表现优异。</p>
+<h3 id=前置准备>前置准备</h3>
+<ol>
+<li><strong>域名准备</strong>: 拥有一个有效域名，并确保 DNS 已解析到服务器 IP</li>
+<li><strong>邮箱准备</strong>: 用于申请 SSL 证书（推荐使用真实邮箱）</li>
+</ol>
+<h3 id=一键安装-1>一键安装</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>bash &lt;<span style=color:#ff79c6>(</span>curl -fsSL https://raw.githubusercontent.com/nolanzhao/network_tools/dev/install-tuic-server.sh<span style=color:#ff79c6>)</span>
+</code></pre></div><p>安装过程中会交互式提示输入：</p>
+<ul>
+<li><strong>域名</strong>: 你的域名（如 tuic.example.com）</li>
+<li><strong>邮箱</strong>: 用于证书申请的邮箱地址</li>
+<li><strong>证书验证方式</strong>: HTTP-01（推荐）或 DNS-01</li>
+</ul>
+<blockquote>
+<p>💡 <strong>安装完成后，脚本会自动</strong>:</p>
+<ul>
+<li>申请并配置 SSL 证书（自动续期）</li>
+<li>生成随机端口、UUID 和强密码</li>
+<li>显示完整的客户端配置信息和二维码</li>
+<li>配置文件位置: <code>/etc/tuic/config.json</code></li>
+</ul>
+</blockquote>
+<h3 id=防火墙配置>防火墙配置</h3>
+<p>安装完成后记得开放 TUIC 使用的端口：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#6272a4># 查看配置文件获取端口号</span>
+cat /etc/tuic/config.json | grep server
+
+<span style=color:#6272a4># 开放端口（假设端口是 12345）</span>
+sudo ufw allow 12345/udp
+</code></pre></div><h3 id=维护命令-1>维护命令</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#6272a4># 查看服务状态</span>
+systemctl status tuic-server
+
+<span style=color:#6272a4># 启动服务</span>
+systemctl start tuic-server
+
+<span style=color:#6272a4># 停止服务</span>
+systemctl stop tuic-server
+
+<span style=color:#6272a4># 重启服务</span>
+systemctl restart tuic-server
+
+<span style=color:#6272a4># 查看日志</span>
+journalctl -u tuic-server -f
+</code></pre></div><h3 id=证书管理>证书管理</h3>
+<p>脚本已自动配置证书自动续期（每天 21:29 检查，到期前 60 天自动续期）：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#6272a4># 查看证书列表和到期时间</span>
+/root/.acme.sh/acme.sh --list
+
+<span style=color:#6272a4># 查看自动续期定时任务</span>
+crontab -l | grep acme.sh
+
+<span style=color:#6272a4># 手动强制续期（如需要）</span>
+/root/.acme.sh/acme.sh --renew -d your.domain.com --force --ecc
+
+<span style=color:#6272a4># 手动触发检查（不等定时）</span>
+/root/.acme.sh/acme.sh --cron --force
+</code></pre></div><hr>
+<h2 id=方案三-hysteria2-速度最快>方案三: Hysteria2 (速度最快)</h2>
+<h3 id=方案特点-2>方案特点</h3>
+<p>Hysteria2 是目前速度最快的VPN方案：</p>
+<ul>
+<li>🚀 <strong>速度最快</strong>: 专为高延迟、高丢包网络优化</li>
+<li>💪 <strong>强大功能</strong>: 多端口跳跃、自定义拥塞控制</li>
+<li>🌐 <strong>需要域名</strong>: 需要配置域名和证书</li>
+<li>⚙️ <strong>配置灵活</strong>: 可根据网络环境精细调优</li>
+</ul>
+<h3 id=技术原理-2>技术原理</h3>
+<p>Hysteria2 同样基于 QUIC 协议，但使用了自研的拥塞控制算法，在高丢包环境下性能远超传统协议。它特别适合跨国长距离传输和弱网环境。</p>
+<h3 id=前置准备-1>前置准备</h3>
+<ol>
+<li><strong>域名准备</strong>: 拥有一个有效域名，并确保 DNS 已解析到服务器 IP</li>
+<li><strong>邮箱准备</strong>: 用于申请 SSL 证书</li>
+</ol>
+<h3 id=一键安装-2>一键安装</h3>
+<h4 id=1-安装-hysteria2>1. 安装 Hysteria2</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>bash &lt;<span style=color:#ff79c6>(</span>curl -fsSL https://get.hy2.sh/<span style=color:#ff79c6>)</span>
+</code></pre></div><h4 id=2-申请证书>2. 申请证书</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#6272a4># 安装 acme.sh</span>
+curl https://get.acme.sh | sh -s <span style=color:#8be9fd;font-style:italic>email</span><span style=color:#ff79c6>=</span>your@email.com
+
+<span style=color:#6272a4># 申请证书</span>
+~/.acme.sh/acme.sh --issue -d your.domain.com --standalone --keylength ec-256
+
+<span style=color:#6272a4># 安装证书（包含自动重启配置）</span>
+~/.acme.sh/acme.sh --install-cert -d your.domain.com --ecc <span style=color:#f1fa8c>\
+</span><span style=color:#f1fa8c></span>  --key-file /etc/hysteria/private.key <span style=color:#f1fa8c>\
+</span><span style=color:#f1fa8c></span>  --fullchain-file /etc/hysteria/cert.crt <span style=color:#f1fa8c>\
+</span><span style=color:#f1fa8c></span>  --reloadcmd <span style=color:#f1fa8c>&#34;systemctl restart hysteria-server&#34;</span>
+</code></pre></div><blockquote>
+<p>💡 <strong>证书自动续期</strong>: 添加 <code>--reloadcmd</code> 参数后，证书续期时会自动重启 Hysteria2 服务</p>
+</blockquote>
+<h4 id=3-创建配置文件>3. 创建配置文件</h4>
+<p>参考官方文档创建 <code>/etc/hysteria/config.yaml</code>，关键配置项：</p>
+<ul>
+<li>监听端口（建议 443）</li>
+<li>TLS 证书路径</li>
+<li>认证密码</li>
+<li>带宽限制（根据服务器实际情况调整）</li>
+<li>伪装网站（masquerade）</li>
+</ul>
+<p>完整配置模板请参考: <a href=https://v2.hysteria.network/zh/docs/getting-started/Server/>https://v2.hysteria.network/zh/docs/getting-started/Server/</a></p>
+<h4 id=4-启动服务>4. 启动服务</h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>systemctl <span style=color:#8be9fd;font-style:italic>enable</span> hysteria-server
+systemctl start hysteria-server
+systemctl status hysteria-server
+</code></pre></div><h3 id=防火墙配置-1>防火墙配置</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#6272a4># 开放 443 端口（UDP）</span>
+sudo ufw allow 443/udp
+
+<span style=color:#6272a4># 开放 80 端口（用于证书续期）</span>
+sudo ufw allow 80/tcp
+</code></pre></div><h3 id=高级功能>高级功能</h3>
+<p><strong>端口跳跃</strong>（防止端口封锁）:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#ff79c6>listen</span>: :<span style=color:#bd93f9>20000-30000</span>  <span style=color:#6272a4># 使用端口段</span>
+</code></pre></div><p><strong>多用户管理</strong>:</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=color:#ff79c6>auth</span>:
+  <span style=color:#ff79c6>type</span>: userpass
+  <span style=color:#ff79c6>userpass</span>:
+    <span style=color:#ff79c6>user1</span>: password1
+    <span style=color:#ff79c6>user2</span>: password2
+</code></pre></div><h3 id=维护命令-2>维护命令</h3>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#6272a4># 查看服务状态</span>
+systemctl status hysteria-server
+
+<span style=color:#6272a4># 启动/停止/重启</span>
+systemctl start/stop/restart hysteria-server
+
+<span style=color:#6272a4># 查看日志</span>
+journalctl -u hysteria-server -f
+
+<span style=color:#6272a4># 测试配置文件</span>
+hysteria server -c /etc/hysteria/config.yaml --test
+
+<span style=color:#6272a4># 更新 Hysteria2</span>
+bash &lt;<span style=color:#ff79c6>(</span>curl -fsSL https://get.hy2.sh/<span style=color:#ff79c6>)</span>
+</code></pre></div><h3 id=证书管理-1>证书管理</h3>
+<p>证书已自动配置每天检查和续期（与 TUIC 相同的机制）：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#6272a4># 查看证书列表和到期时间</span>
+/root/.acme.sh/acme.sh --list
+
+<span style=color:#6272a4># 查看自动续期定时任务</span>
+crontab -l | grep acme.sh
+
+<span style=color:#6272a4># 手动强制续期（如需要）</span>
+/root/.acme.sh/acme.sh --renew -d your.domain.com --force --ecc
+
+<span style=color:#6272a4># 手动触发检查（不等定时）</span>
+/root/.acme.sh/acme.sh --cron --force
+</code></pre></div><hr>
+<h2 id=客户端配置>客户端配置</h2>
+<h3 id=支持的客户端>支持的客户端</h3>
+<p>所有三种方案都支持以下主流客户端：</p>
+<h4 id=windows--macos--linux>Windows / macOS / Linux</h4>
+<ul>
+<li><strong>v2rayN</strong>: <a href=https://v2rayn.2dust.link/>https://v2rayn.2dust.link/</a></li>
+<li>支持所有三种协议</li>
+<li>图形化界面，易于使用</li>
+</ul>
+<h4 id=ios>iOS</h4>
+<ul>
+<li><strong>Shadowrocket</strong>: App Store 下载（需美区账号）</li>
+<li>功能强大，支持多种协议</li>
+</ul>
+<h4 id=android>Android</h4>
+<ul>
+<li><strong>v2rayNG</strong>: <a href=https://v2rayng.2dust.link/>https://v2rayng.2dust.link/</a></li>
+<li>开源免费，支持所有协议</li>
+</ul>
+<h3 id=通用配置步骤>通用配置步骤</h3>
+<ol>
+<li><strong>下载并安装客户端</strong></li>
+<li><strong>导入服务器配置</strong>
+<ul>
+<li>扫描服务端生成的二维码（推荐）</li>
+<li>或手动输入服务器信息</li>
+</ul>
+</li>
+<li><strong>测试连接</strong></li>
+<li><strong>选择路由模式</strong>（全局/规则/直连）</li>
+</ol>
+<h3 id=配置说明>配置说明</h3>
+<p><strong>推荐方式</strong>: 使用安装脚本生成的二维码，在客户端中扫码导入配置（最简单快捷）</p>
+<p><strong>手动配置</strong>: 安装完成后，脚本会显示所有必要的连接参数，按照提示在客户端中手动输入即可</p>
+<hr>
+<h2 id=三种方案对比>三种方案对比</h2>
+<table>
+<thead>
+<tr>
+<th>特性</th>
+<th>VLESS + Reality</th>
+<th>TUIC</th>
+<th>Hysteria2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>传输协议</strong></td>
+<td>TCP</td>
+<td>QUIC (UDP)</td>
+<td>QUIC (UDP)</td>
+</tr>
+<tr>
+<td><strong>稳定性</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>速度</strong></td>
+<td>⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>抗封锁能力</strong></td>
+<td>⭐⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td><strong>弱网表现</strong></td>
+<td>一般</td>
+<td>好</td>
+<td>极好</td>
+</tr>
+<tr>
+<td><strong>CPU占用</strong></td>
+<td>低</td>
+<td>中</td>
+<td>中</td>
+</tr>
+<tr>
+<td><strong>推荐场景</strong></td>
+<td>稳定为主</td>
+<td>平衡性能</td>
+<td>极限速度</td>
+</tr>
+</tbody>
+</table>
+<h2 id=使用建议>使用建议</h2>
+<h3 id=新手用户>新手用户</h3>
+<p>推荐 <strong>VLESS + Reality</strong>:</p>
+<ul>
+<li>无需域名和证书，配置最简单</li>
+<li>稳定性最好，适合长期使用</li>
+<li>一键脚本安装，5分钟搞定</li>
+</ul>
+<h3 id=追求速度>追求速度</h3>
+<p>推荐 <strong>Hysteria2</strong>:</p>
+<ul>
+<li>速度最快，特别适合看视频、下载</li>
+<li>弱网环境表现优异</li>
+<li>可根据实际情况精细调优</li>
+</ul>
+<h3 id=多方案部署>多方案部署</h3>
+<p>建议在同一服务器上同时部署多种方案：</p>
+<ul>
+<li><strong>主力</strong>: Hysteria2（日常使用）</li>
+<li><strong>备用</strong>: VLESS + Reality（应对封锁）</li>
+<li><strong>辅助</strong>: TUIC（特殊场景）</li>
+</ul>
+<hr>
+<h2 id=安全建议>安全建议</h2>
+<h3 id=服务器安全>服务器安全</h3>
+<ol>
+<li><strong>定期更新系统</strong></li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo apt update <span style=color:#ff79c6>&amp;&amp;</span> sudo apt upgrade -y
+</code></pre></div><ol start=2>
+<li><strong>配置防火墙</strong></li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>sudo ufw <span style=color:#8be9fd;font-style:italic>enable</span>
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+<span style=color:#6272a4># 只开放必要端口</span>
+</code></pre></div><ol start=3>
+<li><strong>修改 SSH 端口</strong></li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#6272a4># 编辑 /etc/ssh/sshd_config</span>
+Port <span style=color:#bd93f9>2222</span>  <span style=color:#6272a4># 改为非标准端口</span>
+PermitRootLogin no  <span style=color:#6272a4># 禁止 root 直接登录</span>
+</code></pre></div><ol start=4>
+<li><strong>使用密钥登录</strong></li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#6272a4># 禁用密码登录，只允许密钥</span>
+PasswordAuthentication no
+</code></pre></div><h3 id=使用安全>使用安全</h3>
+<ol>
+<li><strong>定期更换密码和UUID</strong></li>
+<li><strong>不要分享配置给不信任的人</strong></li>
+<li><strong>合理使用，遵守当地法律法规</strong></li>
+<li><strong>定期备份配置文件</strong></li>
+</ol>
+<hr>
+<h2 id=故障排查>故障排查</h2>
+<h3 id=无法连接>无法连接</h3>
+<ol>
+<li><strong>检查服务状态</strong></li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>systemctl status xray  <span style=color:#6272a4># 或 tuic-server / hysteria-server</span>
+</code></pre></div><ol start=2>
+<li><strong>检查端口是否开放</strong></li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#6272a4># 检查端口监听</span>
+netstat -tlnp | grep 端口号
+
+<span style=color:#6272a4># 检查防火墙</span>
+sudo ufw status
+</code></pre></div><ol start=3>
+<li><strong>查看日志</strong></li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>journalctl -u 服务名 -f
+</code></pre></div><h3 id=速度慢>速度慢</h3>
+<ol>
+<li><strong>检查服务器负载</strong></li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>top
+iotop
+</code></pre></div><ol start=2>
+<li><strong>测试服务器网络</strong></li>
+</ol>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#6272a4># 安装 speedtest-cli</span>
+pip3 install speedtest-cli
+
+<span style=color:#6272a4># 测速</span>
+speedtest-cli
+</code></pre></div><ol start=3>
+<li><strong>调整配置参数</strong></li>
+</ol>
+<ul>
+<li>Hysteria2: 调整 bandwidth 参数</li>
+<li>TUIC: 尝试更换拥塞控制算法</li>
+</ul>
+<h3 id=频繁断线>频繁断线</h3>
+<ol>
+<li><strong>检查服务器稳定性</strong></li>
+<li><strong>更换伪装域名</strong>（VLESS Reality）</li>
+<li><strong>调整超时参数</strong>（Hysteria2）</li>
+</ol>
+<hr>
+<h2 id=总结>总结</h2>
+<p>本文详细介绍了三种主流VPN搭建方案的完整流程。每种方案都有其特点：</p>
+<ul>
+<li><strong>VLESS + Reality</strong>: 最稳定，无需域名，适合新手</li>
+<li><strong>TUIC</strong>: 速度快，配置适中，综合性能好</li>
+<li><strong>Hysteria2</strong>: 速度最快，功能最强，适合追求极致性能</li>
+</ul>
+<p>选择合适的方案，正确配置和使用，可以获得稳定高速的网络体验。</p>
+<p>请合理使用这些工具，遵守相关法律法规。</p>
+<hr>
+<h2 id=参考资源>参考资源</h2>
+<ul>
+<li>Xray 官方文档: <a href=https://xtls.github.io/>https://xtls.github.io/</a></li>
+<li>TUIC 官方仓库: <a href=https://github.com/EAimTY/tuic>https://github.com/EAimTY/tuic</a></li>
+<li>Hysteria2 官方文档: <a href=https://v2.hysteria.network/>https://v2.hysteria.network/</a></li>
+<li>v2rayN 下载: <a href=https://v2rayn.2dust.link/>https://v2rayn.2dust.link/</a></li>
+<li>acme.sh 文档: <a href=https://github.com/acmesh-official/acme.sh>https://github.com/acmesh-official/acme.sh</a></li>
+</ul>
+<hr>
+<p><em>最后更新: 2025年12月14日</em></p>
+</div>
+<div class=post-copyright>
+<p class=copyright-item>
+<span class=item-title>文章作者</span>
+<span class=item-content>Nolan</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>上次更新</span>
+<span class=item-content>
+2025年12月14日
+</span>
+</p>
+<p class=copyright-item>
+<span class=item-title>许可协议</span>
+<span class=item-content><a rel="license noopener" href=https://creativecommons.org/licenses/by-nc-nd/4.0/ target=_blank>CC BY-NC-ND 4.0</a></span>
+</p>
+</div>
+<footer class=post-footer>
+<div class=post-tags>
+<a href=/tags/vpn/>VPN</a>
+<a href=/tags/vless/>VLESS</a>
+<a href=/tags/tuic/>TUIC</a>
+<a href=/tags/hysteria2/>Hysteria2</a>
+</div>
+<nav class=post-nav>
+</nav>
+</footer>
+</article>
+</div>
+<div id=disqus_thread></div>
+<script type=text/javascript>(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.type='text/javascript',a.async=!0,b='nolanzhao-github-io',a.src='//'+b+'.disqus.com/embed.js',(document.getElementsByTagName('head')[0]||document.getElementsByTagName('body')[0]).appendChild(a)})()</script>
+<noscript>Please enable JavaScript to view the <a href=http://disqus.com/?ref_noscript>comments powered by Disqus.</a></noscript>
+</div>
+</main>
+<footer id=footer class=footer>
+<div class=social-links>
+<a href=mailto:z_nolan@126.com class="iconfont icon-email" title=email></a>
+<a href=https://twitter.com/lazycat_zzz class="iconfont icon-twitter" title=twitter></a>
+<a href=https://www.linkedin.com/in/xu-zhao-43232b100/ class="iconfont icon-linkedin" title=linkedin></a>
+<a href=https://github.com/nolanzhao class="iconfont icon-github" title=github></a>
+<a href=https://nolanzhao.github.io/index.xml type=application/rss+xml class="iconfont icon-rss" title=rss></a>
+</div>
+<div class=copyright>
+<span class=copyright-year>
+&copy;
+<span>Zhao Xu</span>
+</span>
+</div>
+</footer>
+<div class=back-to-top id=back-to-top>
+<i class="iconfont icon-up"></i>
+</div>
+</div>
+<script src=https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin=anonymous></script>
+<script src=https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin=anonymous></script>
+<script type=text/javascript src=/js/main.min.c99b103c33d1539acf3025e1913697534542c4a5aa5af0ccc20475ed2863603b.js></script>
+<script type=text/javascript>window.MathJax={tex:{}}</script>
+<script async src=https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin=anonymous></script>
+<script id=baidu_analytics>var _hmt=_hmt||[];(function(){var a,b;if(window.location.hostname==='localhost')return;a=document.createElement("script"),a.async=!0,a.src="https://hm.baidu.com/hm.js?179ac1229b9397472cde80b6d807776c",b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+<script id=baidu_push>(function(){var a,c,b;if(window.location.hostname==='localhost')return;a=document.createElement('script'),a.async=!0,c=window.location.protocol.split(':')[0],c==='https'?a.src='https://zz.bdstatic.com/linksubmit/push.js':a.src='http://push.zhanzhang.baidu.com/push.js',b=document.getElementsByTagName("script")[0],b.parentNode.insertBefore(a,b)})()</script>
+<script src=/js/custom.js></script>
+</body>
+</html>
