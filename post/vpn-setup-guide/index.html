@@ -32,7 +32,7 @@
 <meta itemprop=name content="三种主流VPN搭建方法完全指南">
 <meta itemprop=description content="详细介绍 VLESS+Reality、TUIC 和 Hysteria2 三种主流 VPN 的搭建方法，包含自动化安装脚本和客户端配置指南"><meta itemprop=datePublished content="2025-12-14T00:00:00+08:00">
 <meta itemprop=dateModified content="2025-12-14T00:00:00+08:00">
-<meta itemprop=wordCount content="2750">
+<meta itemprop=wordCount content="2836">
 <meta itemprop=keywords content="VPN,VLESS,TUIC,Hysteria2,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="三种主流VPN搭建方法完全指南">
 <meta name=twitter:description content="详细介绍 VLESS+Reality、TUIC 和 Hysteria2 三种主流 VPN 的搭建方法，包含自动化安装脚本和客户端配置指南"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
@@ -92,7 +92,7 @@
 <div class=post-category>
 <a href=/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/> 网络安全 </a>
 </div>
-<span class=more-meta> 约 2750 字 </span>
+<span class=more-meta> 约 2836 字 </span>
 <span class=more-meta> 预计阅读 6 分钟 </span>
 </div>
 </header>
@@ -298,6 +298,9 @@ crontab -l | grep acme.sh
 
 <span style=color:#6272a4># 手动触发检查（不等定时）</span>
 /root/.acme.sh/acme.sh --cron --force
+</code></pre></div><p><strong>Crontab 自动续期配置</strong>（已自动添加）：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#6272a4># 每天 21:29 自动更新服务器所有域名证书</span>
+<span style=color:#bd93f9>29</span> <span style=color:#bd93f9>21</span> * * * <span style=color:#f1fa8c>&#34;/root/.acme.sh&#34;</span>/acme.sh --cron --home <span style=color:#f1fa8c>&#34;/root/.acme.sh&#34;</span> &gt; /dev/null
 </code></pre></div><hr>
 <h2 id=方案三-hysteria2-速度最快>方案三: Hysteria2 (速度最快)</h2>
 <h3 id=方案特点-2>方案特点</h3>
@@ -390,6 +393,9 @@ crontab -l | grep acme.sh
 
 <span style=color:#6272a4># 手动触发检查（不等定时）</span>
 /root/.acme.sh/acme.sh --cron --force
+</code></pre></div><p><strong>Crontab 自动续期配置</strong>（已自动添加）：</p>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=color:#6272a4># 每天 21:29 自动更新服务器所有域名证书</span>
+<span style=color:#bd93f9>29</span> <span style=color:#bd93f9>21</span> * * * <span style=color:#f1fa8c>&#34;/root/.acme.sh&#34;</span>/acme.sh --cron --home <span style=color:#f1fa8c>&#34;/root/.acme.sh&#34;</span> &gt; /dev/null
 </code></pre></div><hr>
 <h2 id=客户端配置>客户端配置</h2>
 <h3 id=支持的客户端>支持的客户端</h3>
