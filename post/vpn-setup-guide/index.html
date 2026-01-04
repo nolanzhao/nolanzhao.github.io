@@ -32,7 +32,7 @@
 <meta itemprop=name content="三种主流VPN搭建方法完全指南">
 <meta itemprop=description content="详细介绍 VLESS+Reality、TUIC 和 Hysteria2 三种主流 VPN 的搭建方法，包含自动化安装脚本和客户端配置指南"><meta itemprop=datePublished content="2025-12-14T00:00:00+08:00">
 <meta itemprop=dateModified content="2025-12-14T00:00:00+08:00">
-<meta itemprop=wordCount content="2832">
+<meta itemprop=wordCount content="2865">
 <meta itemprop=keywords content="VPN,VLESS,TUIC,Hysteria2,"><meta name=twitter:card content="summary">
 <meta name=twitter:title content="三种主流VPN搭建方法完全指南">
 <meta name=twitter:description content="详细介绍 VLESS+Reality、TUIC 和 Hysteria2 三种主流 VPN 的搭建方法，包含自动化安装脚本和客户端配置指南"><!--[if lte IE 9]><script src=https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js></script><![endif]--><!--[if lt IE 9]><script src=https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js></script>
@@ -92,7 +92,7 @@
 <div class=post-category>
 <a href=/categories/%E7%BD%91%E7%BB%9C%E5%AE%89%E5%85%A8/> 网络安全 </a>
 </div>
-<span class=more-meta> 约 2832 字 </span>
+<span class=more-meta> 约 2865 字 </span>
 <span class=more-meta> 预计阅读 6 分钟 </span>
 </div>
 </header>
@@ -103,7 +103,13 @@
 <ul>
 <li>
 <ul>
+<li><a href=#tldr>TL;DR</a></li>
 <li><a href=#服务器环境要求>服务器环境要求</a></li>
+<li><a href=#一键安装-推荐安装-vless--reality-和-hysteria2-即可>一键安装 (推荐安装 VLESS + Reality 和 Hysteria2 即可)</a>
+<ul>
+<li></li>
+</ul>
+</li>
 <li><a href=#方案一-vless--reality-最稳定>方案一: VLESS + Reality (最稳定)</a>
 <ul>
 <li><a href=#方案特点>方案特点</a></li>
@@ -176,12 +182,12 @@
 <blockquote>
 <p><strong>免责声明</strong>: 本文内容仅供学习研究使用，请勿用于非法用途。</p>
 </blockquote>
-<p><strong>推荐服务器</strong>:
-<a href=https://app.vmiss.com/store/us-los-angeles-cn2>vmiss: us-los-angeles-cn2</a></p>
-<p><strong>一键安装脚本仓库</strong>: <a href=https://github.com/nolanzhao/network_tools/tree/dev>https://github.com/nolanzhao/network_tools/tree/dev</a></p>
+<hr>
+<h2 id=tldr>TL;DR</h2>
 <h2 id=服务器环境要求>服务器环境要求</h2>
+<p><strong>推荐服务器</strong>: <a href=https://app.vmiss.com/store/us-los-angeles-cn2>vmiss: us-los-angeles-cn2</a></p>
 <ul>
-<li><strong>操作系统</strong>: Ubuntu 24.04 LTS</li>
+<li><strong>操作系统</strong>: Ubuntu 24.04 LTS (22版本也可)</li>
 <li><strong>权限</strong>: root 用户</li>
 <li><strong>网络</strong>: 公网 IP 地址</li>
 <li><strong>防火墙</strong>: 需开放相应端口</li>
@@ -193,7 +199,14 @@
 <li><strong>服务器系统防火墙</strong>（使用 <code>ufw</code> 命令, Vultr 服务器通常需要这一步!）</li>
 </ol>
 </blockquote>
-<hr>
+<h2 id=一键安装-推荐安装-vless--reality-和-hysteria2-即可>一键安装 (推荐安装 VLESS + Reality 和 Hysteria2 即可)</h2>
+<h4 id=vless--reality><em>VLESS + Reality</em></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>bash &lt;<span style=color:#ff79c6>(</span>curl -fsSL https://raw.githubusercontent.com/nolanzhao/network_tools/dev/install_vless_reality.sh<span style=color:#ff79c6>)</span>
+</code></pre></div><h4 id=tuic><em>TUIC</em></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>bash &lt;<span style=color:#ff79c6>(</span>curl -fsSL https://raw.githubusercontent.com/nolanzhao/network_tools/dev/install-tuic-server.sh<span style=color:#ff79c6>)</span>
+</code></pre></div><h4 id=hysteria2><em>Hysteria2</em></h4>
+<div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash>bash &lt;<span style=color:#ff79c6>(</span>curl -fsSL https://raw.githubusercontent.com/nolanzhao/network_tools/dev/install_hysteria2.sh<span style=color:#ff79c6>)</span>
+</code></pre></div><hr>
 <h2 id=方案一-vless--reality-最稳定>方案一: VLESS + Reality (最稳定)</h2>
 <h3 id=方案特点>方案特点</h3>
 <p>VLESS + Reality 是目前最稳定的VPN方案之一，具有以下优势：</p>
