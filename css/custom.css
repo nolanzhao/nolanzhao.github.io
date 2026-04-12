@@ -1,0 +1,118 @@
+/* 自定义样式 - 覆盖主题默认样式 */
+
+/* 文章内图片样式 */
+.post-content figure.post-image {
+  margin: 1.5em 0;
+  padding: 0;
+  text-align: center;
+}
+
+.post-content figure.post-image img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto;
+  border-radius: 4px;
+}
+
+.post-content figure.post-image figcaption {
+  margin-top: 0.5em;
+  color: #999;
+  font-size: 0.9em;
+  text-align: center;
+}
+
+/* 高亮文本样式 */
+.post-content mark,
+.post-content .highlight-text {
+  background-color: #fff3cd;
+  padding: 0.1em 0.3em;
+  border-radius: 3px;
+  color: #856404;
+}
+
+/* Mermaid 图表容器样式 */
+.mermaid {
+  text-align: center;
+  margin: 2em 0;
+  background-color: #f8f9fa;
+  padding: 1em;
+  border-radius: 4px;
+  overflow-x: auto;
+}
+
+/* --- 代码块深色主题样式修复 --- */
+/* 强制代码块使用深色背景 */
+.post-content pre,
+.post-content .highlight,
+.post-content .highlight pre,
+.post-content figure.highlight,
+.post-content div.highlight {
+    background-color: #282a36 !important; /* Dracula 背景色 */
+    border: none !important;
+    border-radius: 6px;
+    margin: 1.5em 0;
+}
+
+.post-content pre code,
+.post-content .highlight code {
+    background-color: transparent !important;
+    color: #f8f8f2 !important; /* Dracula 前景色 */
+}
+
+/* 行号样式 */
+.post-content .highlight .lntd pre,
+.post-content .highlight .lnt {
+    background-color: #282a36 !important;
+    color: #6272a4 !important; /* Dracula 注释色 */
+}
+
+/* --- 2025 Theme Redesign Improvements --- */
+
+/* 链接悬停效果优化 */
+.post-content a:not(.fancybox) {
+    color: #1890ff; /* Match the new theme color */
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color 0.3s ease, color 0.3s ease;
+}
+
+.post-content a:not(.fancybox):hover {
+    color: #40a9ff;
+    border-bottom-color: #40a9ff;
+}
+
+/* 图片阴影和圆角 (增强现有样式) */
+.post-content img {
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.post-content img:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
+}
+
+/* 引用块样式优化 */
+.post-content blockquote {
+    border-left: 4px solid #1890ff; /* Match theme color */
+    background-color: #f0f7ff; /* Very light blue */
+    color: #595959;
+    border-radius: 0 4px 4px 0;
+}
+
+/* 代码块圆角 */
+.highlight {
+    border-radius: 6px;
+}
+
+/* 赞赏图片样式 - 防止变形 */
+.post-reward .qr-code .image {
+    width: auto !important;
+    height: auto !important;
+    max-width: 200px;
+    max-height: 300px;
+    object-fit: contain; /* 保持图片原始比例 */
+}
