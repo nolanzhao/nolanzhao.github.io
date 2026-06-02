@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>技术文档 on 云端漫步</title>
+    <link>http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/</link>
+    <description>Recent content in 技术文档 on 云端漫步</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Fri, 12 Dec 2025 10:00:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/categories/%E6%8A%80%E6%9C%AF%E6%96%87%E6%A1%A3/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Markdown 完整功能测试文章</title>
+      <link>http://localhost:1313/post/markdown-test/</link>
+      <pubDate>Fri, 12 Dec 2025 10:00:00 +0800</pubDate>
+      <guid>http://localhost:1313/post/markdown-test/</guid>
+      <description>&lt;h1 id=&#34;一级标题测试&#34;&gt;一级标题测试&lt;/h1&gt;&#xA;&lt;p&gt;这是一篇完整的Markdown测试文章,用于验证博客系统的各项功能。&lt;/p&gt;&#xA;&lt;h2 id=&#34;二级标题---文本格式测试&#34;&gt;二级标题 - 文本格式测试&lt;/h2&gt;&#xA;&lt;h3 id=&#34;三级标题---基础文本样式&#34;&gt;三级标题 - 基础文本样式&lt;/h3&gt;&#xA;&lt;p&gt;这是普通文本段落。支持&lt;strong&gt;粗体文本&lt;/strong&gt;、&lt;em&gt;斜体文本&lt;/em&gt;、&lt;em&gt;&lt;strong&gt;粗斜体文本&lt;/strong&gt;&lt;/em&gt;。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

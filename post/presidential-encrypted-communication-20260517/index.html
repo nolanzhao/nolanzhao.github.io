@@ -1,0 +1,862 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <title>总统是怎么通讯的：从特朗普访华聊到端到端加密的真相 - 云端漫步</title>
+  <meta name="renderer" content="webkit" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+<meta name="theme-color" content="#f8f5ec" />
+<meta name="msapplication-navbutton-color" content="#f8f5ec">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="#f8f5ec">
+
+
+<meta name="author" content="Claude" /><meta name="description" content="借特朗普访华这个引子，把美国总统的国家级通讯体系、端点/链路/端到端三层安全概念、1945 年苏联木雕国徽窃听案、SS7 协议漏洞、以及 FaceTime 的端到端加密原理，一篇讲透。" /><meta name="keywords" content="技术笔记, Nolan Zhao, Zhao Xu, 云端漫步, 赵旭, Python, Go, 后端, 算法" />
+
+
+<meta name="baidu-site-verification" content="code-z7J4FjZlre" />
+
+
+
+<meta name="generator" content="Hugo 0.160.1 with theme even" />
+
+
+<link rel="canonical" href="http://localhost:1313/post/presidential-encrypted-communication-20260517/" />
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+
+
+
+
+<link href="/sass/main.min.5a00a4fa523eea4bd3efe71b3a24e2067ac8b9528dfb3b08bdbf8f944a993953.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.css" integrity="sha256-7TyXnr2YU040zfSP+rEcz29ggW4j56/ujTPwjMzyqFY=" crossorigin="anonymous">
+<link rel="stylesheet" href="/css/custom.css">
+
+
+<meta property="og:url" content="http://localhost:1313/post/presidential-encrypted-communication-20260517/">
+  <meta property="og:site_name" content="云端漫步">
+  <meta property="og:title" content="总统是怎么通讯的：从特朗普访华聊到端到端加密的真相">
+  <meta property="og:description" content="借特朗普访华这个引子，把美国总统的国家级通讯体系、端点/链路/端到端三层安全概念、1945 年苏联木雕国徽窃听案、SS7 协议漏洞、以及 FaceTime 的端到端加密原理，一篇讲透。">
+  <meta property="og:locale" content="zh_cn">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="post">
+    <meta property="article:published_time" content="2026-05-17T11:50:00+08:00">
+    <meta property="article:modified_time" content="2026-05-17T11:50:00+08:00">
+    <meta property="article:tag" content="加密通讯">
+    <meta property="article:tag" content="信息安全">
+    <meta property="article:tag" content="GFW">
+    <meta property="article:tag" content="NSA">
+    <meta property="article:tag" content="FaceTime">
+    <meta property="article:tag" content="WHCA">
+
+  <meta itemprop="name" content="总统是怎么通讯的：从特朗普访华聊到端到端加密的真相">
+  <meta itemprop="description" content="借特朗普访华这个引子，把美国总统的国家级通讯体系、端点/链路/端到端三层安全概念、1945 年苏联木雕国徽窃听案、SS7 协议漏洞、以及 FaceTime 的端到端加密原理，一篇讲透。">
+  <meta itemprop="datePublished" content="2026-05-17T11:50:00+08:00">
+  <meta itemprop="dateModified" content="2026-05-17T11:50:00+08:00">
+  <meta itemprop="wordCount" content="8556">
+  <meta itemprop="keywords" content="加密通讯,信息安全,GFW,NSA,FaceTime,WHCA,冷战,SS7">
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="总统是怎么通讯的：从特朗普访华聊到端到端加密的真相">
+  <meta name="twitter:description" content="借特朗普访华这个引子，把美国总统的国家级通讯体系、端点/链路/端到端三层安全概念、1945 年苏联木雕国徽窃听案、SS7 协议漏洞、以及 FaceTime 的端到端加密原理，一篇讲透。">
+
+<!--[if lte IE 9]>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/classlist/1.1.20170427/classList.min.js"></script>
+<![endif]-->
+
+<!--[if lt IE 9]>
+  <script src="https://cdn.jsdelivr.net/npm/html5shiv@3.7.3/dist/html5shiv.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/respond.js@1.4.2/dest/respond.min.js"></script>
+<![endif]-->
+
+</head>
+<body>
+  <div id="mobile-navbar" class="mobile-navbar">
+  <div class="mobile-header-logo">
+    <a href="/" class="logo">云端漫步</a>
+  </div>
+  <div class="mobile-navbar-icon">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</div>
+<nav id="mobile-menu" class="mobile-menu slideout-menu">
+  <ul class="mobile-menu-list">
+    <a href="/">
+        <li class="mobile-menu-item">主页</li>
+      </a><a href="/post/">
+        <li class="mobile-menu-item">归档</li>
+      </a><a href="/tags/">
+        <li class="mobile-menu-item">标签</li>
+      </a><a href="/categories/">
+        <li class="mobile-menu-item">分类</li>
+      </a>
+  </ul>
+
+  
+
+
+</nav>
+
+  <div class="container" id="mobile-panel">
+    <header id="header" class="header">
+        <div class="logo-wrapper">
+  <a href="/" class="logo">云端漫步</a>
+</div>
+
+
+
+
+
+<nav class="site-navbar">
+  <ul id="menu" class="menu">
+    <li class="menu-item">
+        <a class="menu-item-link" href="/">主页</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/post/">归档</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/tags/">标签</a>
+      </li><li class="menu-item">
+        <a class="menu-item-link" href="/categories/">分类</a>
+      </li>
+  </ul>
+</nav>
+
+    </header>
+
+    <main id="main" class="main">
+      <div class="content-wrapper">
+        <div id="content" class="content">
+          <article class="post">
+    
+    <header class="post-header">
+      <h1 class="post-title">总统是怎么通讯的：从特朗普访华聊到端到端加密的真相</h1>
+
+      <div class="post-meta">
+        <span class="post-time"> 2026年05月17日 </span>
+        <div class="post-category">
+            <a href="/categories/%E6%8A%80%E6%9C%AF%E6%9D%82%E8%B0%88/"> 技术杂谈 </a>
+            </div>
+          <span class="more-meta"> 约 8556 字 </span>
+          <span class="more-meta"> 预计阅读 18 分钟 </span>
+        
+      </div>
+    </header>
+
+    <div class="post-toc" id="post-toc">
+  <h2 class="post-toc-title">文章目录</h2>
+  <div class="post-toc-content always-active">
+    <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#一特朗普访华的vpn是什么">一、特朗普访华的&quot;VPN&quot;是什么</a>
+          <ul>
+            <li><a href="#11-访华的工作流程">1.1 访华的工作流程</a></li>
+            <li><a href="#12-数据链路">1.2 数据链路</a></li>
+            <li><a href="#13-gfw-的不对称性">1.3 GFW 的不对称性</a></li>
+          </ul>
+        </li>
+        <li><a href="#二总统身上的四类设备">二、总统身上的四类设备</a>
+          <ul>
+            <li><a href="#21-未改装的私人-iphone">2.1 未改装的私人 iPhone</a></li>
+            <li><a href="#22-nsa-改装的-iphone两台冗余">2.2 NSA 改装的 iPhone（两台冗余）</a></li>
+            <li><a href="#23-cisco-8841-改装版-ip-电话黄色边框">2.3 Cisco 8841 改装版 IP 电话（黄色边框）</a></li>
+            <li><a href="#24-核足球nuclear-football">2.4 核足球（Nuclear Football）</a></li>
+          </ul>
+        </li>
+        <li><a href="#三端点安全--链路安全--端到端加密">三、端点安全 / 链路安全 / 端到端加密</a></li>
+        <li><a href="#四ss7-漏洞为什么打普通电话就是裸的">四、SS7 漏洞：为什么打普通电话就是裸的</a></li>
+        <li><a href="#五facetime-的工作原理">五、FaceTime 的工作原理</a>
+          <ul>
+            <li><a href="#51-idsidentity-service-苹果的公钥目录">5.1 IDS（Identity Service）= 苹果的&quot;公钥目录&quot;</a></li>
+            <li><a href="#52-apns--信令">5.2 APNs + 信令</a></li>
+            <li><a href="#53-ice--stun--turn--穿透-nat">5.3 ICE / STUN / TURN —— 穿透 NAT</a></li>
+            <li><a href="#54-媒体传输srtp">5.4 媒体传输：SRTP</a></li>
+            <li><a href="#55-为什么说苹果看不到内容">5.5 为什么说苹果&quot;看不到内容&quot;</a></li>
+            <li><a href="#56-已知的理论后门">5.6 已知的&quot;理论后门&quot;</a></li>
+            <li><a href="#57-跟普通电话的对比">5.7 跟普通电话的对比</a></li>
+          </ul>
+        </li>
+        <li><a href="#六1945-年的木雕国徽现代信息安全的开山故事">六、1945 年的木雕国徽：现代信息安全的开山故事</a>
+          <ul>
+            <li><a href="#61-故事">6.1 故事</a></li>
+            <li><a href="#62-设计">6.2 设计</a></li>
+            <li><a href="#63-美国的反应">6.3 美国的反应</a></li>
+            <li><a href="#64-它确立的现代信息安全原则">6.4 它确立的现代信息安全原则</a></li>
+          </ul>
+        </li>
+        <li><a href="#七维也纳公约第-27-条">七、维也纳公约第 27 条</a></li>
+        <li><a href="#八反讽美国总统是世界上受最严格网络管控的人">八、反讽：美国总统是世界上受最严格网络管控的人</a>
+          <ul>
+            <li><a href="#81-没人能给美国总统发威">8.1 没人能给美国总统发威</a></li>
+            <li><a href="#82-nsa-跟特朗普的拉锯战">8.2 NSA 跟特朗普的拉锯战</a></li>
+            <li><a href="#83-体制反向制裁总统">8.3 体制反向制裁总统</a></li>
+            <li><a href="#84-这种机制到底是好是坏">8.4 这种机制到底是好是坏</a></li>
+          </ul>
+        </li>
+        <li><a href="#九pra所有通讯档案最终归人民">九、PRA：所有通讯档案最终归人民</a>
+          <ul>
+            <li><a href="#91-那我们能不能看到">9.1 那我们能不能看到？</a></li>
+          </ul>
+        </li>
+        <li><a href="#十判断框架消费级安全--政府级安全">十、判断框架：消费级安全 ≠ 政府级安全</a></li>
+        <li><a href="#结尾">结尾</a></li>
+        <li><a href="#参考与延伸">参考与延伸</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+  </div>
+</div>
+    <div class="post-content">
+      <blockquote>
+<p>灵感来自 YouTube「聊点不同 E43」+ 一段关于 FaceTime 原理的延伸讨论。这篇是把视频里散落的技术线索、加上我自己补的密码学细节，整理成一份完整的、能反复翻的笔记。</p>
+</blockquote>
+<p>2026 年 5 月 13 日，特朗普踏上中国。一个看起来很无聊的问题被一个 YouTuber 玩成了节目：<strong>他在中国用什么 VPN？</strong></p>
+<p>这个问题表面是猎奇，本质是个非常好的引子，能把以下几个完全不同的领域串起来：</p>
+<ul>
+<li>美国总统的国家级通讯体系（WHCA / NSA / 核足球）</li>
+<li>端点安全、链路安全、端到端加密这三个最容易被混淆的术语</li>
+<li>GFW 的设计假设和它对单点用户的&quot;无效&quot;</li>
+<li>一段 1945 年的间谍故事，是现代信息安全学科的开山案例</li>
+<li>维也纳公约里关于加密通讯权的条款</li>
+<li>苹果 FaceTime 在协议层到底做了什么</li>
+<li>为什么&quot;和总统一样的安全级别&quot;这种营销词永远是错的</li>
+</ul>
+<hr>
+<h2 id="一特朗普访华的vpn是什么">一、特朗普访华的&quot;VPN&quot;是什么</h2>
+<p>先把 VPN 这个词拆清楚。</p>
+<ul>
+<li>对中国普通用户：VPN ≈ 翻墙工具，目的是<strong>把流量从中国运营商网络偷偷送出去</strong></li>
+<li>对美国总统：VPN = <strong>从所在国家任何不可信网络，安全地接回美国本土</strong></li>
+</ul>
+<p>后者的解决方案叫 <strong>WHCA</strong>（White House Communications Agency，白宫通讯局）。</p>
+<ul>
+<li>1942 年成立，前身是 White House Signal Detachment</li>
+<li>编制约 1000 人，跨海陆空三军 + 海岸警卫队 + 海军陆战队的联合机构</li>
+<li>现归国防部下属的 DISA 管理</li>
+<li>使命只有一句话：<strong>确保美国总统在世界上任何一个角落都能跟华盛顿通话，不被任何人监听</strong></li>
+</ul>
+<h3 id="11-访华的工作流程">1.1 访华的工作流程</h3>
+<p>特朗普到北京之前一周，先遣队就会飞到目的地（这次住四季酒店，后面会讲为什么）。先遣队做的事：</p>
+<ol>
+<li>用专业设备扫描整栋楼，找窃听器</li>
+<li>从屋顶拉一根光纤下来，接到临时部署的<strong>军用卫星地面站</strong></li>
+<li>所有窗户加装振动干扰器，或换成防激光窃听玻璃</li>
+<li>在总统卧室和会议区搭一顶 <strong>SCIF</strong>（Sensitive Compartmented Information Facility）—— 物理上就是&quot;帐篷里的帐篷&quot;，金属编织墙 + 缝隙做电磁屏蔽。手机进去没信号，外面听不到里面的对话</li>
+</ol>
+<p>媒体估算这次访华光后勤就 2100 万美元，包括防弹车、通讯车、医疗救护车、移动通信基站、卫星终端、集装箱式临时指挥中心。</p>
+<h3 id="12-数据链路">1.2 数据链路</h3>
+<p>特朗普的设备发出的每一个数据包，走的链路是这样的：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>[设备]
+</span></span><span style="display:flex;"><span>   ↓
+</span></span><span style="display:flex;"><span>[Taclane 加密器]   ← NSA Type 1 认证密码机（通用动力出品）
+</span></span><span style="display:flex;"><span>   ↓
+</span></span><span style="display:flex;"><span>[屋顶光纤]
+</span></span><span style="display:flex;"><span>   ↓
+</span></span><span style="display:flex;"><span>[军用同步轨道卫星 X-Band UHF]   ← 不走 Starlink，不走任何民用通讯
+</span></span><span style="display:flex;"><span>   ↓
+</span></span><span style="display:flex;"><span>[Camp David WHCA 交换机]
+</span></span><span style="display:flex;"><span>   ↓
+</span></span><span style="display:flex;"><span>[美国境内公网]
+</span></span></code></pre></div><p><strong>关键观察：数据包从未进入中国的电信运营商网络。</strong></p>
+<p>GFW 的所有手段——DNS 污染、IP 黑名单、SNI 嗅探、TLS 指纹识别、主动探测——全部建立在一个前提上：<strong>流量得经过中国境内的路由器</strong>。特朗普直接走天上，绕过去了。</p>
+<p>更准确地说，GFW 对他来说不是&quot;被绕开&quot;，而是<strong>完全不存在</strong>。</p>
+<h3 id="13-gfw-的不对称性">1.3 GFW 的不对称性</h3>
+<p>这条思路引出一个有意思的推论。上一期那个 YouTuber 讲过快连为什么被封：因为它有几十万付费用户的流量池，全部强制经过中国 ISP 出境。这是 GFW 最强的场景。</p>
+<p>套用同样的逻辑，<strong>为什么特朗普封不动</strong>：</p>
+<ul>
+<li>单人单流量</li>
+<li>不经过中国网络</li>
+<li>国家级加密</li>
+<li>还有外交豁免权（后面讲）</li>
+</ul>
+<p>GFW 的每一个设计前提，在他身上都不成立。这就是 GFW 的不对称性：</p>
+<table>
+  <thead>
+      <tr>
+          <th>维度</th>
+          <th>GFW 的表现</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>对穷人</td>
+          <td>非常不友好</td>
+      </tr>
+      <tr>
+          <td>对富人/国家级用户</td>
+          <td>无效</td>
+      </tr>
+      <tr>
+          <td>对规模化用户</td>
+          <td>极其精准</td>
+      </tr>
+      <tr>
+          <td>对单点用户</td>
+          <td>无力</td>
+      </tr>
+      <tr>
+          <td>对境内流量</td>
+          <td>极度有效</td>
+      </tr>
+      <tr>
+          <td>对绕开境内的流量</td>
+          <td>完全失效</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="二总统身上的四类设备">二、总统身上的四类设备</h2>
+<h3 id="21-未改装的私人-iphone">2.1 未改装的私人 iPhone</h3>
+<p>完完全全跟你我手上一样的 iPhone，连麦克风都没拆。这是特朗普的任性，也是 NSA 最头疼的地方。</p>
+<p>多位现任和前任美国官员证实：俄罗斯和各国情报机构都在<strong>常规监听</strong>特朗普的私人 iPhone。这不是猜测，是美国情报系统的内部评估。</p>
+<h3 id="22-nsa-改装的-iphone两台冗余">2.2 NSA 改装的 iPhone（两台冗余）</h3>
+<p>外壳是 iPhone，但内部被砍掉一大批功能：</p>
+<ul>
+<li>第三方 App Store</li>
+<li>iCloud 同步</li>
+<li>iMessage</li>
+<li>Find My iPhone</li>
+<li>AirDrop</li>
+<li>个人热点</li>
+<li>摄像头/麦克风常驻权限</li>
+<li>GPS 精准定位</li>
+<li>蓝牙发现模式</li>
+</ul>
+<p>留下来的几乎全是网关：</p>
+<ul>
+<li><strong>电话</strong> → 走 D2D 加密语音网关</li>
+<li><strong>短信</strong> → 走专用安全通道</li>
+<li><strong>Truth Social / X</strong> → NSA 专门立项批准（后面讲那个搞笑故事）</li>
+<li><strong>邮件</strong> → 阉割版客户端只能连 Outlook</li>
+<li><strong>日历</strong></li>
+</ul>
+<p>两台冗余，号码定期轮换，当前号码的知情人不超过 20 个。</p>
+<h3 id="23-cisco-8841-改装版-ip-电话黄色边框">2.3 Cisco 8841 改装版 IP 电话（黄色边框）</h3>
+<p>这台机器有几个非常硬核的改造：</p>
+<p><strong>① 黄色边框 = 视觉防呆</strong></p>
+<p>WHCA 的颜色编码：</p>
+<ul>
+<li>绿色 = 非密级</li>
+<li>黄色 = 机密级</li>
+<li>红色 = 绝密级</li>
+</ul>
+<p>在错误的网络上讨论错误内容，是最高级别的安全事故。颜色编码是物理性的防呆，和数据中心用不同颜色网线区分 VLAN 是一个思路。</p>
+<p><strong>② 光纤上联，取代 RJ14 铜缆</strong></p>
+<p>为什么？铜缆传输的电信号会通过电磁辐射泄露到周围空间。1～3 米内用普通 SDR 接收机就能还原原始音频。光纤是光信号，物理上没这个旁路。</p>
+<p><strong>③ TEMPEST 屏蔽外壳</strong></p>
+<p>所有缝隙做电磁屏蔽，麦克风听筒部分做法拉第笼处理。</p>
+<p><strong>④ On-Hook Disconnect（挂机即断开）</strong></p>
+<p>这是最关键的安全特性。普通办公电话<strong>挂机后麦克风仍然带电</strong>，理论上可以被远程激活当窃听器，叫 <strong>Hotmic 攻击</strong>。</p>
+<p>这台改装版在挂机时<strong>物理切断麦克风电源</strong>——不是软件控制，是机械继电器。</p>
+<p><strong>⑤ 终端傻、网络聪明的设计哲学</strong></p>
+<p>电话本身<strong>不加密</strong>。加密发生在中间的 Taclane（KG-175D/G）密码机里，那才是真正用 Type 1 密码加密的地方。Cisco 8841 只是把模拟语音转成 IP 包丢到光纤上。</p>
+<p>这种思路是冷战时期确立的：<strong>把保密的复杂度集中在少数高度受控的硬件里，终端可以用任何东西，方便量产和换代。</strong></p>
+<h3 id="24-核足球nuclear-football">2.4 核足球（Nuclear Football）</h3>
+<p>7×24 不离身。洗澡时核足球军官在浴室门口待命，做肠镜麻醉时副总统代理职权但军官在隔壁。</p>
+<p>总统年薪 40 万美元固定（宪法第二条第一款规定，任期内不得加薪也不得减薪），没有 KPI 考核。核足球岗位是地球上极少数没有&quot;下班&quot;概念的工作之一。</p>
+<hr>
+<h2 id="三端点安全--链路安全--端到端加密">三、端点安全 / 链路安全 / 端到端加密</h2>
+<p>这是整个话题里最容易被混淆的三个概念，也是理解后面所有内容的基础。</p>
+<table>
+  <thead>
+      <tr>
+          <th>术语</th>
+          <th>保护谁</th>
+          <th>怎么破</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td><strong>端点安全</strong></td>
+          <td>设备本身（系统、芯片、App）</td>
+          <td>攻破你的手机/电脑</td>
+      </tr>
+      <tr>
+          <td><strong>链路安全</strong></td>
+          <td>中间传输路径（基站、骨干网、海底光缆）</td>
+          <td>控制中间任何一段</td>
+      </tr>
+      <tr>
+          <td><strong>端到端加密（E2EE）</strong></td>
+          <td>内容本身（在你设备上就已加密）</td>
+          <td>必须攻破两端设备之一</td>
+      </tr>
+  </tbody>
+</table>
+<p>视频里那句&quot;苹果端点做得很好，但链路苹果管不着&quot;——意思是：</p>
+<ul>
+<li>苹果能保证 iPhone 本身没漏洞（<strong>端点</strong>）</li>
+<li>但你的电话信号一旦出了 iPhone，走的是运营商网络、走的是 1970 年代设计的 SS7 协议</li>
+<li>这条<strong>链路</strong>苹果设计不了、也控制不了</li>
+</ul>
+<p>只有 iMessage / FaceTime 这种 E2EE，内容在你 iPhone 里就被加密了，<strong>中间链路即使被全程监听，看到的也是乱码</strong>。</p>
+<p>简单记：</p>
+<ul>
+<li><strong>端点</strong> = 起点和终点的<strong>设备</strong></li>
+<li><strong>链路</strong> = 起点到终点之间的<strong>整条路</strong></li>
+<li><strong>E2EE</strong> = 让链路再脏也无所谓</li>
+</ul>
+<hr>
+<h2 id="四ss7-漏洞为什么打普通电话就是裸的">四、SS7 漏洞：为什么打普通电话就是裸的</h2>
+<p><strong>SS7</strong> = Signaling System 7，1970 年代设计的电信信令协议。全球电信网络至今依赖它来做漫游、来电显示、短信路由。</p>
+<p>著名漏洞：<strong>知道一个手机号，就能定位、转接、监听这个号码的所有通话和短信。</strong></p>
+<p>跟你用什么手机无关——iPhone、华为、诺基亚老人机都一样。<strong>漏洞不在手机里，在电信骨干网里。</strong></p>
+<p>各国情报机构怎么监听特朗普？大概率根本不需要破解他的 iPhone，只需要：</p>
+<ol>
+<li>买通某个小国的电信运营商（中东 / 非洲 / 东南亚都行）</li>
+<li>获得 SS7 网络接入权</li>
+<li>发送伪造信令请求，<strong>假装特朗普的手机正在该国漫游</strong></li>
+<li>所有去往特朗普号码的通话先转接到中间节点，再转回原目的地</li>
+</ol>
+<p>经典的中间人攻击。特朗普和对面都察觉不到。</p>
+<p><strong>反直觉的结论</strong>：苹果做得很好，但只是端点安全。链路安全苹果管不着，因为电信骨干网不是苹果建的。</p>
+<p>特朗普如果跟你我一样喜欢打普通电话而不用 iMessage/FaceTime，那么<strong>特朗普的通讯，至少在国家机器面前，是裸的</strong>。这不是苹果的错，也不是 NSA 没尽力，是每个人个人的选择——把自己暴露在一个 1970 年代设计的协议漏洞之下。</p>
+<hr>
+<h2 id="五facetime-的工作原理">五、FaceTime 的工作原理</h2>
+<p>既然 SS7 这么脏，那 FaceTime 凭什么&quot;安全&quot;？拆开看：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>你按下拨号
+</span></span><span style="display:flex;"><span>  ↓
+</span></span><span style="display:flex;"><span>1. 信令：通过 APNs + IDS 把&#34;我要呼叫你&#34;推给对方
+</span></span><span style="display:flex;"><span>  ↓
+</span></span><span style="display:flex;"><span>2. 密钥协商：双方通过 IDS 拿对方公钥，ECDH 算出共享密钥
+</span></span><span style="display:flex;"><span>  ↓
+</span></span><span style="display:flex;"><span>3. NAT 穿透：ICE/STUN 探路，理想情况两台设备直连
+</span></span><span style="display:flex;"><span>  ↓
+</span></span><span style="display:flex;"><span>4. 媒体传输：音视频走 SRTP，用上面那把共享密钥加密
+</span></span></code></pre></div><h3 id="51-idsidentity-service-苹果的公钥目录">5.1 IDS（Identity Service）= 苹果的&quot;公钥目录&quot;</h3>
+<p>每台设备首次激活时，本地生成一对 <strong>ECDH（P-256）非对称密钥</strong>，<strong>私钥永远留在设备 Secure Enclave 里</strong>，公钥上传到苹果 IDS 服务器。</p>
+<p>IDS 把&quot;手机号/邮箱 → 一组设备公钥&quot;建成索引。你的 Apple ID 同时登录 iPhone + iPad + Mac，IDS 里就有 3 个公钥条目。</p>
+<h3 id="52-apns--信令">5.2 APNs + 信令</h3>
+<p>呼叫发起：</p>
+<ol>
+<li>你的设备问 IDS：&ldquo;对方所有设备的公钥给我&rdquo;</li>
+<li>通过 <strong>APNs</strong>（推送服务）推送一条加密信令到对方所有设备（响铃就是这个）</li>
+<li>信令里包含 SDP（编解码器、ICE 候选地址）和你的临时会话公钥</li>
+<li>对方接听 → 反向推回它的会话公钥</li>
+<li>双方各自做 ECDH → 算出一把只有这次通话有效的<strong>共享密钥</strong></li>
+</ol>
+<p>苹果服务器从头到尾<strong>只是个信箱，没参与算密钥</strong>。</p>
+<h3 id="53-ice--stun--turn--穿透-nat">5.3 ICE / STUN / TURN —— 穿透 NAT</h3>
+<p>家庭路由器后面的设备没有公网 IP，直接发包对方收不到。FaceTime 用 IETF 标准的 ICE 解决：</p>
+<ul>
+<li><strong>STUN</strong>：问苹果的 STUN 服务器&quot;我在公网上看起来是什么 IP:端口?&quot;</li>
+<li>双方交换所有可能的地址候选（局域网 IP / 公网映射 IP / 中继 IP）</li>
+<li>ICE 算法挨个尝试连通性，选最优一条</li>
+</ul>
+<p>大约 <strong>80% 的 FaceTime 通话能做到 P2P 直连</strong>（媒体流根本不经过苹果服务器）。</p>
+<p>剩下穿透不了的（对称 NAT、企业防火墙）走 <strong>TURN 中继</strong>：苹果服务器做&quot;傻包转发&quot;，仍然看不到内容——因为内容已经被 SRTP 加密。</p>
+<h3 id="54-媒体传输srtp">5.4 媒体传输：SRTP</h3>
+<ul>
+<li>加密：AES-CTR / AES-GCM</li>
+<li>用 5.2 算出的会话密钥（每次通话不同，具备 <strong>Perfect Forward Secrecy</strong>）</li>
+<li>编解码器：音频 AAC-LD，视频 H.264 / H.265 / 苹果自家 LCEVC</li>
+<li>每个 RTP 包都加密 + MAC 防篡改</li>
+</ul>
+<h3 id="55-为什么说苹果看不到内容">5.5 为什么说苹果&quot;看不到内容&quot;</h3>
+<ul>
+<li>私钥从未离开设备（Secure Enclave 硬件保护）</li>
+<li>共享密钥是两台设备 ECDH 算出来的，苹果服务器没参与运算</li>
+<li>媒体流在 P2P 模式下根本不过苹果服务器；过的话也是加密包</li>
+<li>即使法庭传票来，苹果能交出的只有&quot;几月几号 A 呼叫了 B&quot;这种<strong>元数据</strong>，没有通话内容</li>
+</ul>
+<h3 id="56-已知的理论后门">5.6 已知的&quot;理论后门&quot;</h3>
+<p>这是 E2EE 最常被讨论的弱点，<strong>不只 FaceTime，所有 E2EE 系统都有</strong>。</p>
+<p><strong>苹果控制 IDS 公钥目录。</strong> 理论上，苹果可以在你呼叫某人时，偷偷往返回的公钥列表里<strong>插入一台幽灵设备</strong>的公钥（政府/苹果控制），你会无察觉地把会话密钥也加密给它。</p>
+<p>这叫 <strong>Ghost User 攻击</strong>。FBI 在 2018–2020 年间公开提过对苹果的这种要求，苹果对外否认配合，但密码学上<strong>只能信&quot;苹果说不&quot;</strong>——没法从协议本身证伪。除非将来苹果引入 Signal 那种&quot;公钥安全编号&quot;（让双方手动核对指纹），但那不太可能，因为太破坏用户体验。</p>
+<h3 id="57-跟普通电话的对比">5.7 跟普通电话的对比</h3>
+<table>
+  <thead>
+      <tr>
+          <th></th>
+          <th>普通电话</th>
+          <th>FaceTime</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>信令网络</td>
+          <td>SS7（1970s，有漏洞）</td>
+          <td>APNs + IDS（苹果自家）</td>
+      </tr>
+      <tr>
+          <td>寻址</td>
+          <td>手机号→运营商 HLR</td>
+          <td>Apple ID→IDS</td>
+      </tr>
+      <tr>
+          <td>加密</td>
+          <td>无（明文走骨干）</td>
+          <td>E2EE（SRTP + ECDH）</td>
+      </tr>
+      <tr>
+          <td>中间人</td>
+          <td>任何运营商 / SS7 攻击者都行</td>
+          <td>只有苹果（理论上的 ghost key）</td>
+      </tr>
+      <tr>
+          <td>元数据</td>
+          <td>运营商全留</td>
+          <td>苹果保留呼叫双方+时长</td>
+      </tr>
+  </tbody>
+</table>
+<hr>
+<h2 id="六1945-年的木雕国徽现代信息安全的开山故事">六、1945 年的木雕国徽：现代信息安全的开山故事</h2>
+<p>这次访华，特朗普为什么住北京四季酒店而不是钓鱼台国宾馆？</p>
+<p>不是因为携程房间订满了。钓鱼台是<strong>主权空间</strong>，管理权和所有权全在中方。四季酒店是<strong>商业空间</strong>，美方可以包楼接管，把它临时转化成&quot;美方控制的飞地&quot;。加上离美国大使馆只有 700 米，万一有事可以快速进入享有治外法权的主权领土。</p>
+<p>这是&quot;<strong>最小可信空间</strong>&ldquo;原则的应用，和总统卧室里那顶 SCIF 帐篷是同一个思路。</p>
+<p>那为什么 WHCA 要把酒店里所有的家具都扫一遍？因为有 1945 年那个故事。</p>
+<h3 id="61-故事">6.1 故事</h3>
+<p>1945 年二战刚结束，美苏蜜月期。苏联少先队的孩子们到莫斯科的美国大使官邸，送给当时的大使 Averell Harriman 一个<strong>手工雕刻的美国国徽</strong>作为友谊礼物。</p>
+<p>Harriman 很高兴，挂在书房墙上，正对办公桌。</p>
+<p>接下来 <strong>7 年间</strong>，这栋楼住过 <strong>4 任美国大使</strong>。所有人都在书房里讨论过机密：电报草稿、跟华盛顿的电话、跟其他外交官的密谈。<strong>全部被苏联监听了 7 年。</strong></p>
+<p>1952 年才意外被发现：英国一个驻莫斯科电台的无线电操作员，碰巧在某个频段听到了美国大使的声音，他认得这个声音，但完全不知道为什么会出现在那个频段上。报告给英方，英方又告诉美方。</p>
+<p>美方派人去这个房间做了<strong>三次完整的电子扫描，都没找到</strong>——因为这个设备<strong>绝大部分时候不发任何信号</strong>。</p>
+<p>后来 NSA 想了一个新办法：在房间里故意制造各种音频，同时用宽频接收机扫描。发现<strong>当且仅当</strong>外部某个特定频率（约 330 MHz）的微波从外面射进来的时候，房间里的语音会被调制到反射回去的信号上。顺着这个原理，才找到了木雕国徽里的装置。</p>
+<h3 id="62-设计">6.2 设计</h3>
+<p>设计者叫 <strong>Leon Theremin</strong>——就是发明特雷门琴的那个 Theremin。俄裔美籍发明家，二战期间被苏联从美国召回为克格勃服务。</p>
+<p>装置的原理：</p>
+<ul>
+<li>一个谐振腔 + 短天线 + 金属薄片（作为麦克风的共振膜）</li>
+<li><strong>完全无源</strong>：没有电池、没有电源、没有任何主动电子元件</li>
+<li>不被照射的时候就是一坨金属，X 光都很难看出问题</li>
+<li>工作时苏联在街对面停一辆面包车，发射 330 MHz 微波束照射大使馆</li>
+<li>微波激发谐振腔 → 房间里的声波震动金属薄片 → 薄片改变谐振腔的电气特性 → 反射回去的微波<strong>被声音调制</strong></li>
+</ul>
+<p><strong>这一类窃听器，是现代 RFID 技术的直接祖先。</strong></p>
+<h3 id="63-美国的反应">6.3 美国的反应</h3>
+<p>发现之后美国选择<strong>忍气吞声</strong>，没声张。</p>
+<p>直到 1960 年 U-2 间谍机被苏联击落，美方在联合国安理会想谴责苏联间谍行为，苏方反击说&quot;那不是美国也搞间谍吗&rdquo;——美国大使当时就掏出了这个木雕国徽的复制品，抛给全世界看。</p>
+<p>等于公开宣告：&ldquo;看看你们干的好事。&rdquo;</p>
+<p>这是冷战间谍战公开亮相的标志性时刻。</p>
+<h3 id="64-它确立的现代信息安全原则">6.4 它确立的现代信息安全原则</h3>
+<p>为什么这个故事到今天还要讲？因为它确立了几个核心原则：</p>
+<p><strong>① 物理空间也是攻击面</strong></p>
+<p>网络可以是零信任的，但房间有窗户、有墙、有装饰品、有暖气片——每一个都是潜在的旁路信道。</p>
+<p><strong>② 被动设备无法用常规电子扫频检测</strong></p>
+<p>直接导致 <strong>TSCM</strong>（Technical Surveillance Counter-Measures，技术监听对抗）这门专业的诞生。</p>
+<p><strong>③ 任何礼物都可能是攻击向量</strong></p>
+<p>美国国务院从此规定：驻外使馆收到的所有礼物必须经过专业扫描，才能带入工作区。这条规定至今有效。</p>
+<p>所以特朗普这次先遣队在四季酒店做的那一周准备里，大概率包括现代版的 <strong>NLJD</strong>（非线性结点探测器），扫描所有家具、装饰品、墙体，寻找现代版的 The Thing。</p>
+<hr>
+<h2 id="七维也纳公约第-27-条">七、维也纳公约第 27 条</h2>
+<p>很多人下意识觉得维也纳公约（1961）那个年代没什么通讯设备，所以条文不适用今天。这个观点不对。</p>
+<p>1961 年的通讯生态其实非常丰富：</p>
+<ul>
+<li>电传打字机 Telex 已经在全球互联 20 多年</li>
+<li>各国大使馆国际短波通信无线电是标配</li>
+<li>美苏热线 1963 年要建</li>
+<li>各国情报机构搞 SIGINT 已经 30 年</li>
+<li>密码机如 KW-7、Hagelin C-52 已经服役多年</li>
+</ul>
+<p>国际通讯规则更早——1865 年就有<strong>国际电报公约</strong>（马克思在伦敦写资本论的时候就有了）。所以 1961 年的维也纳公约只是<strong>把 100 年的既有惯例法典化</strong>。</p>
+<p>第 27 条核心内容：</p>
+<blockquote>
+<p>东道国应允许并保护使团为一切公务目的的自由通讯。使团可使用一切适当方式，包括外交信使和<strong>密码或暗号电报</strong>。</p>
+</blockquote>
+<p>1961 年就承认了<strong>加密通讯权</strong>。还有：</p>
+<ul>
+<li>使团的官方信件不可侵犯</li>
+<li>外交邮袋不可开拆或扣留（这就是外交包，可以塞任何东西）</li>
+<li><strong>但使团安装和使用无线电发报机，必须经过东道国同意</strong></li>
+</ul>
+<p>最后这条很关键。理论上中国可以拒绝美方在境内架设无线电发射设备，但实践中每次国事访问之前，美方先遣队都会跟中方协商一份<strong>地面规则清单</strong>，明确列出：</p>
+<ul>
+<li>要带哪些通讯设备</li>
+<li>用什么频段</li>
+<li>覆盖范围多大</li>
+</ul>
+<p>中方批准 → 美方部署。</p>
+<p>所以中方去封禁特朗普通讯，在公约语境下不是技术问题，而是<strong>条约问题</strong>。中方在他抵达之前就已经书面同意了美方的整套通讯部署。如果中方在这个情况下去干扰它，等于撕毁双边协定，违反习惯国际法——<strong>属于宣战级别的外交事件</strong>。</p>
+<p>封禁的成本远高于任何可能拿到的收益。</p>
+<hr>
+<h2 id="八反讽美国总统是世界上受最严格网络管控的人">八、反讽：美国总统是世界上受最严格网络管控的人</h2>
+<p>到这里答案已经很清楚：特朗普完全不用翻墙，可以畅通无阻地访问任何互联网。</p>
+<p><strong>但这不意味着他自由。</strong> 实际上他正在经受着比任何中国人都严格的网络管控和审查，只是管他的不是 GFW，是 NSA + WHCA + 美国宪法体制。</p>
+<h3 id="81-没人能给美国总统发威">8.1 没人能给美国总统发威</h3>
+<ul>
+<li>年薪 40 万美元固定，宪法第二条第一款规定任期内不得加薪不得减薪</li>
+<li>国会都改不了</li>
+<li>所以<strong>没有 KPI 考核扣工资</strong>这种东西</li>
+</ul>
+<h3 id="82-nsa-跟特朗普的拉锯战">8.2 NSA 跟特朗普的拉锯战</h3>
+<p>2017 年第一任期初期，NSA 和 WHCA 给他的 iPhone 是<strong>完全砍掉所有第三方 App</strong> 的状态，包括 Twitter。</p>
+<p>但他在 2016 年竞选期间养成了每天凌晨 3 点发推的习惯，上任后立刻表示&quot;我要发推&quot;。当时的白宫办公厅主任 Reince Priebus 和后来的 John Kelly 都试过限制他，<strong>根本拐不动</strong>。特朗普绕开障碍的办法：</p>
+<ul>
+<li>找助理发</li>
+<li>用其他设备发</li>
+<li>干脆拿起未经改装的私人 iPhone 自己发</li>
+</ul>
+<p>NSA 这时候要做现实主义的决定：</p>
+<ul>
+<li><strong>选项 A</strong>：拒绝预装 Twitter，让他用私人未改装 iPhone → 设备完全暴露</li>
+<li><strong>选项 B</strong>：预装 Twitter 到改装机 → 设备本体安全，推文公开（<strong>反正本来就要公开</strong>）</li>
+</ul>
+<p>最后选了 B，叫 <strong>Harm Reduction（伤害最小化）</strong>——NSA 局长签字的安全例外。</p>
+<p>所有人都知道这是走形式：总统是 NSA 的最终上级，他想用什么 App，NSA 最多写一份措辞强硬的风险评估报告，他签字&quot;我接受风险&quot;就推翻了。</p>
+<blockquote>
+<p><strong>美国总统通过持续骚扰自己的安全部门，强迫他们让步给他装了一个 Twitter。</strong> 这是世界上最荒诞的&quot;用户提需求&quot;故事之一。</p>
+</blockquote>
+<h3 id="83-体制反向制裁总统">8.3 体制反向制裁总统</h3>
+<p>既然管不住，那安全部门怎么办？答案是<strong>反向制裁</strong>——政治学里有专门的研究框架叫 <strong>Adversarial Principal-Agent Problem</strong>：委托人和代理人利益不一致甚至敌对的时候，组织如何运转。</p>
+<p>从匿名爆料和回忆录里看到的反制手段：</p>
+<ul>
+<li><strong>有选择地呈递文件</strong>——重要但他可能冲动反应的事不告诉他</li>
+<li><strong>延迟执行命令</strong>——前国防部长 Mattis 公开承认过</li>
+<li><strong>从桌上偷走文件</strong>——前国家经济委员会主任 Gary Cohn 的著名事件：特朗普准备签一份退出美韩自贸协定的命令，被 Cohn 直接从办公桌上偷走，特朗普回来忘了这事，命令也就没签成（Bob Woodward 的书里有详细记载）</li>
+<li><strong>操控会议议程</strong>——调整每日情报简报（PDB）的呈现顺序、长度、视觉风格。特朗普被发现更容易吸收&quot;短的 + 有图的 + 有他名字的&quot;简报</li>
+<li><strong>隐形抗命</strong>——参联会主席 Mark Milley 那次特殊抗命就是典型</li>
+</ul>
+<p>更典型的物理隔离：椭圆办公室 / 战情室 / 空军一号密谈区，<strong>都是按法拉第笼设计的</strong>，电磁屏蔽。手机进去就是一块砖。<strong>对总统本人没有任何例外。</strong></p>
+<p>既然劝不动你不要用手机，那就把你直接锁进一个连手机都用不了的房间里开会。</p>
+<h3 id="84-这种机制到底是好是坏">8.4 这种机制到底是好是坏</h3>
+<p>组织行为学里这是双面的：</p>
+<ul>
+<li><strong>好的一面</strong>：组织对个人疯狂行为有缓冲，避免单一个体的灾难性决策</li>
+<li><strong>坏的一面</strong>：未经选举授权的官僚系统反而限制经选举上台的总统，本身就违反民主原则</li>
+</ul>
+<p>哪边赢看你站哪边。</p>
+<hr>
+<h2 id="九pra所有通讯档案最终归人民">九、PRA：所有通讯档案最终归人民</h2>
+<p>特朗普现在用的这些 iPhone 未来怎么处理？答案是 <strong>Presidential Records Act of 1978（PRA，总统记录法）</strong>。</p>
+<p>这部法律是水门事件的直接产物。1981 年里根上任的时候正式生效，里根是第一位受 PRA 约束的总统。</p>
+<p>核心规定：</p>
+<ul>
+<li>总统/副总统在任期间产生的<strong>所有公务记录都属于美国人民</strong>，不是私人物品</li>
+<li>总统<strong>没有销毁权</strong></li>
+<li>任期结束的瞬间，所有记录的法律所有权自动转交给 <strong>NARA</strong>（National Archives and Records Administration，国家档案馆）</li>
+<li>加密档案和密钥同时移交给 NARA 的档案管理员，存入<strong>总统图书馆</strong>（每位总统都有自己的图书馆，奥巴马的在芝加哥）</li>
+</ul>
+<h3 id="91-那我们能不能看到">9.1 那我们能不能看到？</h3>
+<p>根据 2009 年奥巴马签署的行政命令，机密分三级：</p>
+<table>
+  <thead>
+      <tr>
+          <th>等级</th>
+          <th>自动解密时间</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Confidential</td>
+          <td>10 年</td>
+      </tr>
+      <tr>
+          <td>Secret</td>
+          <td>25 年</td>
+      </tr>
+      <tr>
+          <td>Top Secret</td>
+          <td>50 年</td>
+      </tr>
+  </tbody>
+</table>
+<p>特殊豁免（情报来源 / 密码学方法 / 核武器设计 / 活线人身份）可延迟到 75 年甚至更久。</p>
+<p>所以特朗普第二任期的通讯档案：</p>
+<ul>
+<li><strong>2029</strong> 年任期结束 → 移交 NARA</li>
+<li><strong>2039–2054</strong> 年间普通分类陆续解密</li>
+<li><strong>2079</strong> 年左右 Top Secret 级别解密</li>
+</ul>
+<blockquote>
+<p>你和我这辈子大概率能看到特朗普这一周发给马斯克或库克的短信。2040 年代的历史学家会拿来写博士论文。</p>
+</blockquote>
+<hr>
+<h2 id="十判断框架消费级安全--政府级安全">十、判断框架：消费级安全 ≠ 政府级安全</h2>
+<p>最后留一个判断框架：</p>
+<blockquote>
+<p><strong>当一个商业产品说&quot;我们的安全级别和总统一样&quot;，可以默认这句话不准确。要么夸大了，要么偷换了概念。</strong></p>
+</blockquote>
+<p>真正的政府级保密设备<strong>从不会进入消费级市场</strong>。因为他们的设计前提——</p>
+<ul>
+<li>空气供应链</li>
+<li>定制硬件</li>
+<li>专用网络</li>
+<li>合规审计</li>
+</ul>
+<p>——和消费产品的设计前提——</p>
+<ul>
+<li>规模化量产</li>
+<li>广泛兼容</li>
+<li>用户自由</li>
+</ul>
+<p>——<strong>从根本上是冲突的</strong>。</p>
+<p>你买的 BlackBerry 和奥巴马用的那台 BlackBerry 几乎不是同一个东西（NSA 定制硬件套了一个黑莓外壳）。你用的 iPhone 和特朗普用的那两台 NSA 改装 iPhone 也不是同一个东西。</p>
+<p><strong>消费级和政府级之间，不存在连续光谱。它们是两个不同的物种。</strong></p>
+<hr>
+<h2 id="结尾">结尾</h2>
+<p>5 月 15 日特朗普离开北京，他的两台改装 iPhone 跟他一起飞回华盛顿。记录这次访华的所有通讯数据会进入 NARA 国家总统图书馆，等待 2050 年代某一天被解密。</p>
+<p>而我们，正在用各种方式翻墙看视频写博客的普通人，使用的工具——从快连到自建节点到 ShadowRocket——<strong>都不是为我们设计来翻越某座墙的</strong>。它们只是在这座墙允许我们存在的边界上，留下了一个临时性的缝隙。</p>
+<p><strong>缝隙什么时候关，不取决于我们，而取决于墙。</strong></p>
+<p>这个事实让人不舒服。但面对这个事实，是理解所有大规模系统的第一步。</p>
+<hr>
+<h2 id="参考与延伸">参考与延伸</h2>
+<ul>
+<li>视频：YouTube「聊点不同 E43 — 特朗普访华用什么 VPN？」</li>
+<li>WHCA：<a href="https://en.wikipedia.org/wiki/White_House_Communications_Agency">White House Communications Agency - Wikipedia</a></li>
+<li>The Thing (listening device)：<a href="https://en.wikipedia.org/wiki/The_Thing_(listening_device)">Wikipedia</a></li>
+<li>SS7 漏洞概览：60 Minutes 2016 年那期演示，演员 Karsten Nohl 实时定位国会议员的手机</li>
+<li>FaceTime 协议：Apple Platform Security Guide（Apple 官方 PDF，约每年更新）</li>
+<li>PRA：44 U.S.C. §§ 2201–2209</li>
+<li>E2EE 与 Ghost User 攻击：Matthew Green（约翰霍普金斯密码学教授）2019 年那篇 <a href="https://blog.cryptographyengineering.com/">Why I&rsquo;m worried about the future of online privacy</a></li>
+</ul>
+    </div>
+
+    <div class="post-copyright">
+  <p class="copyright-item">
+    <span class="item-title">文章作者</span>
+    <span class="item-content">Claude</span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">联系邮箱</span>
+    <span class="item-content"><a href="mailto:z_nolan@126.com">z_nolan@126.com</a></span>
+  </p>
+  <p class="copyright-item">
+    <span class="item-title">上次更新</span>
+    <span class="item-content">
+        2026年05月17日
+        
+    </span>
+  </p>
+  
+  <p class="copyright-item">
+    <span class="item-title">许可协议</span>
+    <span class="item-content"><a rel="license noopener" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank">CC BY-NC-ND 4.0</a></span>
+  </p>
+</div>
+<footer class="post-footer">
+      <div class="post-tags">
+          <a href="/tags/%E5%8A%A0%E5%AF%86%E9%80%9A%E8%AE%AF/">加密通讯</a>
+          <a href="/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/">信息安全</a>
+          <a href="/tags/gfw/">GFW</a>
+          <a href="/tags/nsa/">NSA</a>
+          <a href="/tags/facetime/">FaceTime</a>
+          <a href="/tags/whca/">WHCA</a>
+          <a href="/tags/%E5%86%B7%E6%88%98/">冷战</a>
+          <a href="/tags/ss7/">SS7</a>
+          </div>
+      <nav class="post-nav">
+        
+        <a class="next" href="/post/anyscribe-local-transcription-tool-20260412/">
+            <span class="next-text nav-default">AnyScribe：完全离线的音视频转录工具</span>
+            <span class="next-text nav-mobile">下一篇</span>
+            <i class="iconfont icon-right"></i>
+          </a>
+      </nav>
+    </footer>
+  </article>
+        </div>
+        <div id="disqus_thread"></div>
+    <script type="text/javascript">
+    (function() {
+      
+      
+      if (window.location.hostname === 'localhost') return;
+
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      var disqus_shortname = 'nolanzhao-github-io';
+      dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+  
+
+  
+
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="social-links">
+      <a href="mailto:z_nolan@126.com" class="iconfont icon-email" title="email"></a>
+      <a href="https://x.com/zhaoxu_888888" class="iconfont icon-twitter" title="twitter"></a>
+      <a href="https://github.com/nolanzhao" class="iconfont icon-github" title="github"></a>
+  <a href="http://localhost:1313/index.xml" type="application/rss+xml" class="iconfont icon-rss" title="rss"></a>
+</div>
+
+<div class="copyright">
+  
+
+  
+
+  <span class="copyright-year">
+    &copy; 
+    
+    
+    
+    <span>Nolan</span>
+  </span>
+</div>
+
+    </footer>
+
+    <div class="back-to-top" id="back-to-top">
+      <i class="iconfont icon-up"></i>
+    </div>
+  </div>
+  
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.2.1/dist/jquery.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/slideout@1.0.1/dist/slideout.min.js" integrity="sha256-t+zJ/g8/KXIJMjSVQdnibt4dlaDxc9zXr/9oNPeWqdg=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@3.1.20/dist/jquery.fancybox.min.js" integrity="sha256-XVLffZaxoWfGUEbdzuLi7pwaUJv1cecsQJQqGLe7axY=" crossorigin="anonymous"></script>
+
+
+
+
+
+
+<script type="text/javascript" src="/js/main.min.4ae89da218555efa0e7093a20b92017d2e1202b66fff9fc2edf4cb8d44b44c6e.js"></script>
+  <script type="text/javascript">
+    window.MathJax = {
+      tex: {
+        }
+    };
+  </script>
+  <script async src="https://cdn.jsdelivr.net/npm/mathjax@3.0.5/es5/tex-mml-chtml.js" integrity="sha256-HGLuEfFcsUJGhvB8cQ8nr0gai9EucOOaIxFw7qxmd+w=" crossorigin="anonymous"></script>
+
+
+<script id="baidu_analytics">
+  var _hmt = _hmt || [];
+  (function() {
+    if (window.location.hostname === 'localhost') return;
+    var hm = document.createElement("script"); hm.async = true;
+    hm.src = "https://hm.baidu.com/hm.js?179ac1229b9397472cde80b6d807776c";
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(hm, s);
+  })();
+</script>
+
+<script id="baidu_push">
+  (function(){
+    if (window.location.hostname === 'localhost') return;
+    var bp = document.createElement('script'); bp.async = true;
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+      bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+    }
+    else {
+      bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+  })();
+</script>
+
+
+<script src="/js/custom.js"></script>
+
+
+</body>
+</html>

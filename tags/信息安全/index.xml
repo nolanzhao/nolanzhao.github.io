@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>信息安全 on 云端漫步</title>
+    <link>http://localhost:1313/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/</link>
+    <description>Recent content in 信息安全 on 云端漫步</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sun, 17 May 2026 11:50:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E4%BF%A1%E6%81%AF%E5%AE%89%E5%85%A8/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>总统是怎么通讯的：从特朗普访华聊到端到端加密的真相</title>
+      <link>http://localhost:1313/post/presidential-encrypted-communication-20260517/</link>
+      <pubDate>Sun, 17 May 2026 11:50:00 +0800</pubDate>
+      <guid>http://localhost:1313/post/presidential-encrypted-communication-20260517/</guid>
+      <description>&lt;blockquote&gt;&#xA;&lt;p&gt;灵感来自 YouTube「聊点不同 E43」+ 一段关于 FaceTime 原理的延伸讨论。这篇是把视频里散落的技术线索、加上我自己补的密码学细节，整理成一份完整的、能反复翻的笔记。&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
+    </item>
+  </channel>
+</rss>
