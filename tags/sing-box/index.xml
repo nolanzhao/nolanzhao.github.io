@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Sing-Box on 云端漫步</title><link>https://nolanzhao.github.io/tags/sing-box/</link><description>Recent content in Sing-Box on 云端漫步</description><generator>Hugo</generator><language>zh-cn</language><lastBuildDate>Sat, 08 Aug 2026 19:30:00 +0800</lastBuildDate><atom:link href="https://nolanzhao.github.io/tags/sing-box/index.xml" rel="self" type="application/rss+xml"/><item><title>树莓派搭建科学上网 WiFi</title><link>https://nolanzhao.github.io/post/raspberry-pi-side-router-20260808/</link><pubDate>Sat, 08 Aug 2026 19:30:00 +0800</pubDate><guid>https://nolanzhao.github.io/post/raspberry-pi-side-router-20260808/</guid><description>&lt;blockquote&gt;
-&lt;p&gt;所有搭建过程均由 Claude Code 全自动完成，并由 Claude Code 整理此文。
-&lt;strong&gt;免责声明&lt;/strong&gt;: 本文内容仅供学习研究使用，请勿用于非法用途。&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;免责声明&lt;/strong&gt;: 本文内容仅供学习研究使用，请勿用于非法用途。
+所有搭建过程均由 Claude Code 全自动完成，并由 Claude Code 整理此文。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;想让家里多个设备都能科学上网，逐台安装客户端、配置节点既繁琐，有些设备还根本装不了。更省心的做法：&lt;strong&gt;让树莓派新建一个专用 WiFi，设备连上即可科学上网，无需安装任何客户端、无需任何配置&lt;/strong&gt;。&lt;/p&gt;
 &lt;p&gt;家里原有的路由器和 WiFi 完全不动，树莓派即使出故障也不影响正常上网。&lt;/p&gt;</description></item></channel></rss>
