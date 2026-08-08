@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>旁路由 on 云端漫步</title>
+    <link>http://localhost:1313/tags/%E6%97%81%E8%B7%AF%E7%94%B1/</link>
+    <description>Recent content in 旁路由 on 云端漫步</description>
+    <generator>Hugo</generator>
+    <language>zh-cn</language>
+    <lastBuildDate>Sat, 08 Aug 2026 19:30:00 +0800</lastBuildDate>
+    <atom:link href="http://localhost:1313/tags/%E6%97%81%E8%B7%AF%E7%94%B1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>用树莓派搭建旁路由：连上 WiFi 即科学上网的零配置方案</title>
+      <link>http://localhost:1313/post/raspberry-pi-side-router-20260808/</link>
+      <pubDate>Sat, 08 Aug 2026 19:30:00 +0800</pubDate>
+      <guid>http://localhost:1313/post/raspberry-pi-side-router-20260808/</guid>
+      <description>&lt;p&gt;家里设备越来越多（手机、电视、平板、客人的设备），每台都装代理 App、配节点太麻烦，电视上很多系统甚至装不了。最省心的方案是：&lt;strong&gt;搭一个专用 WiFi，任何设备连上去就自动翻墙，设备端零配置&lt;/strong&gt;。&lt;/p&gt;&#xA;&lt;p&gt;本文记录用树莓派 5 实现这个方案的完整过程：主路由不动，树莓派作为旁路由挂在下面发一个&amp;quot;翻墙 WiFi&amp;quot;，支持国内外分流。文末重点记录踩过的坑。&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
