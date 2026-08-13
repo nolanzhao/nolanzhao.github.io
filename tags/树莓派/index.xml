@@ -3,7 +3,7 @@
 我做的只是：用特斯拉账号登录了一次授权窗口，以及给 Grafana 设了个新密码。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;特斯拉车机自带的数据展示很有限：充电历史看不全、每次行程的能耗无从查起、电池健康更是只能靠体感猜。&lt;strong&gt;TeslaMate&lt;/strong&gt; 解决的就是这个问题——它 7×24 小时静默记录车辆的一切数据，而这样一个需要全年无休运行的小服务，恰好是树莓派的主场。&lt;/p&gt;</description></item><item><title>树莓派搭建科学上网 WiFi</title><link>https://blog.nolanzhao.xyz/post/raspberry-pi-side-router-20260808/</link><pubDate>Sat, 08 Aug 2026 19:30:00 +0800</pubDate><guid>https://blog.nolanzhao.xyz/post/raspberry-pi-side-router-20260808/</guid><description>&lt;blockquote&gt;
-&lt;p&gt;&lt;strong&gt;免责声明&lt;/strong&gt;: 本文内容仅供学习研究使用，请勿用于非法用途。
+&lt;p&gt;&lt;strong&gt;免责声明&lt;/strong&gt;: 本文内容仅供学习研究使用，请勿用于非法用途。文中提到的所有软件或产品均为研究用途, 本人从未直接或间接从中获利。
 所有搭建过程均由 Claude Code 全自动完成，并由 Claude Code 整理此文。&lt;/p&gt;
 &lt;/blockquote&gt;
 &lt;p&gt;想让家里多个设备都能科学上网，逐台安装客户端、配置节点既繁琐，有些设备还根本装不了。更省心的做法：&lt;strong&gt;让树莓派新建一个专用 WiFi，设备连上即可科学上网，无需安装任何客户端、无需任何配置&lt;/strong&gt;。&lt;/p&gt;
