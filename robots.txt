@@ -1,2 +1,2 @@
 User-agent: *
-Sitemap: https://blog.nolanzhao.xyz/sitemap.xml
+Sitemap: https://nolanzhao.github.io/sitemap.xml
